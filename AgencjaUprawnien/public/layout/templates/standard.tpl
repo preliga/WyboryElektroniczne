@@ -23,10 +23,34 @@
     Agencja Uprawnień
 </div>
 
+<br><br>
+
 <div class="page">
-    {if file_exists("$file.tpl")}
-        {include file="{$file}.tpl"}
-    {/if}
+    <div class="container">
+        <div class="statements">
+            {if !empty($statement['error'])}
+                {foreach $statement['error'] as $message}
+                    <div class="statements-error alert alert-danger" role="alert">
+                        {$message}
+                    </div>
+                {/foreach}
+            {/if}
+
+            {if !empty($statement['success'])}
+                {foreach $statement['success'] as $message}
+                    <div class="statements-success alert alert-success" role="alert">
+                        {$message}
+                    </div>
+                {/foreach}
+            {/if}
+
+        </div>
+        <div class="bg-faded p-4 my-4">
+            {if file_exists("$file.tpl")}
+                {include file="{$file}.tpl"}
+            {/if}
+        </div>
+    </div>
 </div>
 
 <!-- App -->

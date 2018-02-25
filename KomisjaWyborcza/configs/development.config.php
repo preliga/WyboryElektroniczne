@@ -5,6 +5,7 @@ $baseConfig = include ('../configs/base.config.php');
 return array_merge(
     $baseConfig,
     [
+        'homeURL' => 'http://komisjawyborcza.oo',
         'db' => [
             'KomisjaWyborcza' => [
                 'driver' => 'Mysqli',

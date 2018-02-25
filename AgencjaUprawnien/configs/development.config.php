@@ -5,6 +5,7 @@ $baseConfig = include ('../configs/base.config.php');
 return array_merge(
     $baseConfig,
     [
+        'homeURL' => 'http://agencjauprawnien.oo',
         'db' => [
             'AgencjaUprawnien' => [
                 'driver' => 'Mysqli',

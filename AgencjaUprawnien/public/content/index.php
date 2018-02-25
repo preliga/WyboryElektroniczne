@@ -7,6 +7,7 @@ class index extends Base
 
     public function onAction()
     {
+
     }
 
 }
