@@ -1,2 +1,0 @@
-# PigFramework
-PHP is Glamorous
