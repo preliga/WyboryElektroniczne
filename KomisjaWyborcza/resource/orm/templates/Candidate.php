@@ -1,22 +1,21 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Piotr
  * Date: 2018-02-25
- * Time: 19:32
+ * Time: 22:13
  */
-
 namespace resource\orm\templates;
 
-use library\PigOrm\Record;
 use resource\orm\baseTemplate;
 
-class TokenList extends baseTemplate
+class Candidate extends baseTemplate
 {
     protected function createSelect(array $variable = []): \Zend_Db_Select
     {
         $select = $this->db->select()
-            ->from(['t' => 'token_list'], []);
+            ->from(['c' => 'candidate'], []);
 
         return $select;
     }
@@ -27,29 +26,26 @@ class TokenList extends baseTemplate
         return
         [
             'keys' => [
-                'tokenId' => 't.id', // z aliasem !!!
+                'c.id', // z aliasem !!!
             ],
             'tables' => [
-                'token_list' => [
-                    'alias' => 't',
+                'candidate' => [
+                    'alias' => 'c',
                     'keys' => [
-                        'tokenId' => 'id',
+                        'id',
                     ],
                     'columns' => [
-                        'tokenId' => 'id',
-                        'token',
-                        'used',
+                        'id',
+                        'name',
+                        'secondName',
+                        'lastName',
+                        'electionCommittee',
+                        'photo'
                     ],
                     'defaultValues' => [
-                        'used' => 0
                     ]
                 ]
             ]
         ];
-    }
-
-    public function getNextToken() : Record
-    {
-        return $this->findOne(['used = 0']);
     }
 }

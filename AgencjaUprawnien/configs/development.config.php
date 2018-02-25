@@ -6,6 +6,7 @@ return array_merge(
     $baseConfig,
     [
         'homeURL' => 'http://agencjauprawnien.oo',
+        'KomisjaWyborczaURL' => 'http://komisjawyborcza.oo',
         'db' => [
             'AgencjaUprawnien' => [
                 'driver' => 'Mysqli',

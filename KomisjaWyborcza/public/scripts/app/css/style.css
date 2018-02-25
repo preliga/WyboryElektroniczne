@@ -16,6 +16,11 @@ td{
     max-width: none;
 }
 
+.vertical-center {
+    min-height: 50%;
+    display: flex;
+    align-items: center;
+}
 
 /*#############################*/
 

@@ -23,6 +23,8 @@
     Komisja Wyborcza
 </div>
 
+<br>
+
 <div class="page">
     <div class="container">
         <div class="statements">
