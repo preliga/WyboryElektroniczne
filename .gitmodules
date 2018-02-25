@@ -1,0 +1,24 @@
+[submodule "AgencjaUprawnien/library/PigFramework"]
+	path = AgencjaUprawnien/library/PigFramework
+	url = https://github.com/preliga/PigFrameworkLibrary
+[submodule "AgencjaUprawnien/library/PigOrm"]
+	path = AgencjaUprawnien/library/PigOrm
+	url = https://github.com/preliga/PigOrm
+[submodule "AgencjaUprawnien/public/scripts/lib/PigFrameworkJS"]
+	path = AgencjaUprawnien/public/scripts/lib/PigFrameworkJS
+	url = https://github.com/preliga/PigFrameworkJS
+[submodule "AgencjaUprawnien/public/scripts/lib/PigOrmJS"]
+	path = AgencjaUprawnien/public/scripts/lib/PigOrmJS
+	url = https://github.com/preliga/PigOrmJS
+[submodule "KomisjaWyborcza/library/PigFramework"]
+	path = KomisjaWyborcza/library/PigFramework
+	url = https://github.com/preliga/PigFrameworkLibrary
+[submodule "KomisjaWyborcza/library/PigOrm"]
+	path = KomisjaWyborcza/library/PigOrm
+	url = https://github.com/preliga/PigOrm
+[submodule "KomisjaWyborcza/public/scripts/lib/PigFrameworkJS"]
+	path = KomisjaWyborcza/public/scripts/lib/PigFrameworkJS
+	url = https://github.com/preliga/PigFrameworkJS
+[submodule "KomisjaWyborcza/public/scripts/lib/PigOrmJS"]
+	path = KomisjaWyborcza/public/scripts/lib/PigOrmJS
+	url = https://github.com/preliga/PigOrmJS
