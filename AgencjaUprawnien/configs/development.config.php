@@ -6,11 +6,11 @@ return array_merge(
     $baseConfig,
     [
         'db' => [
-            'cinema' => [
+            'AgencjaUprawnien' => [
                 'driver' => 'Mysqli',
-                'dbname' => 'cinema',
+                'dbname' => 'AgencjaUprawnien',
                 'username' => 'root',
-                'password' => ''
+                'password' => 'rootroot'
             ]
         ],
         'smarty' => [

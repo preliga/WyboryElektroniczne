@@ -7,13 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cinema</title>
-    <script src='/scripts/lib/fullCalendar/moment.min.js'></script>
-    <script src='/scripts/lib/fullCalendar/jquery.min.js'></script>
-    <link href='/scripts/lib/fullCalendar/fullcalendar.min.css' rel='stylesheet' />
-    <link href='/scripts/lib/fullCalendar/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-
-    <script src='/scripts/lib/fullCalendar/fullcalendar.min.js'></script>
+    <title>Komisja Wyborcza</title>
 
     {$scriptLoader->includeAllCSS()}
 
@@ -25,9 +19,8 @@
 </head>
 
 <body>
-<div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block"
-     onclick="window.location = '/'" style="cursor: pointer;">
-    Cinema Center
+<div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block home-link">
+    Komisja Wyborcza
 </div>
 
 <div class="page">
@@ -36,15 +29,18 @@
     {/if}
 </div>
 
-<footer class="bg-faded text-center py-1" style="position:fixed; bottom:0; width: 100%;">
-    <div class="container">
-        <a href="/admin/login"> Admin panel</a>
-    </div>
-</footer>
-
 <!-- App -->
 <script data-main="/scripts/app/js/app" src="/scripts/lib/require.js"></script>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+

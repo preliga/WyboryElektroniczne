@@ -29,7 +29,7 @@ abstract class Base extends Action
         $this->definedCSS();
 
         $config = Config::getInstance()->getConfig('db');
-        $db = Db::getInstance($config['cinema'], 'cinema');
+        $db = Db::getInstance($config['KomisjaWyborcza'], 'KomisjaWyborcza');
         $this->db = $db->getDb();
     }
 
