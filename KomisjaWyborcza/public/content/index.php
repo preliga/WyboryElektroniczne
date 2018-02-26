@@ -6,6 +6,5 @@ class index extends Base
 {
     public function onAction()
     {
-        $this->redirect('/elections');
     }
 }
