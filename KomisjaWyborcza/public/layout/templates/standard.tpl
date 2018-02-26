@@ -19,9 +19,11 @@
 </head>
 
 <body>
-<div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block home-link">
-    Komisja Wyborcza
-</div>
+<img src="images/header.png" width="100%">
+{*<div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block home-link">*}
+    {*Komisja Wyborcza*}
+    {*<img src="images/pkw.png" width="300px">*}
+{*</div>*}
 
 <br>
 
