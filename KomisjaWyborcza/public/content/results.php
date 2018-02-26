@@ -15,7 +15,7 @@ class results extends Base
     {
         $this->addJS('/scripts/lib/Chart.bundle.min.js');
 
-        $results = Vote::getInstance()->count(['amountVotes' => 'v.id'], null, ['v.candidateId']);
+        $results = Vote::getInstance()->count(['amountVotes' => 'v.id'], null, ['v.candidateId'], ['amountVotes DESC', 'name']);
 
 
         $amountAllVotes = 0;
