@@ -2,10 +2,9 @@
 define(
     [
         '/scripts/app/js/action/Base.js',
-        '/scripts/lib/PigOrmJS/DataTemplate.js',
-        '/scripts/app/js/model/ORMConfig.js'
+        '/scripts/lib/PigOrmJS/DataTemplate.js'
     ],
-    function (Base, DateTemplate, ORMConfig) {
+    function (Base, DateTemplate) {
         return class results extends Base {
 
             initAction() {
@@ -13,13 +12,28 @@ define(
 
             afterRender() {
                 super.afterRender();
-                generateChart();
+
+                let voteTemplate = new DateTemplate('Vote');
+
+                let column = [];
+                column['amountVotes'] = 'v.id';
+                voteTemplate.count({'amountVotes': 'v.id'}, null, ['v.candidateId'], ['amountVotes DESC', 'name']).then(function(results){
+
+                    let amountAllVotes = 0;
+                    results.forEach(function (item, index) {
+                        amountAllVotes += item.amountVotes;
+                    });
+
+                    generateChart(results, amountAllVotes);
+                });
+                
+
             }
         };
 
-        function generateChart() {
+        function generateChart(results, amountAllVotes) {
 
-            var defaultBackgroundColor = [
+            let defaultBackgroundColor = [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
@@ -27,7 +41,7 @@ define(
                 'rgba(153, 102, 255, 0.2)',
                 'rgba(255, 159, 64, 0.2)'
             ];
-            var defaultBorderColor = [
+            let defaultBorderColor = [
                 'rgba(255,99,132,1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
@@ -36,22 +50,22 @@ define(
                 'rgba(255, 159, 64, 1)'
             ]
 
-            var labels = [];
-            var data = [];
-            var backgroundColor = [];
-            var borderColor = [];
+            let labels = [];
+            let data = [];
+            let backgroundColor = [];
+            let borderColor = [];
 
 
-            view.results.forEach(function (item, index) {
+            results.forEach(function (item, index) {
                 labels.push(item.name + " " + item.lastName);
-                data.push(  parseInt((item.amountVotes / view.amountAllVotes) * 100 ));
+                data.push(  parseInt((item.amountVotes / amountAllVotes) * 100 ));
                 backgroundColor.push(defaultBackgroundColor[index]);
                 borderColor.push(defaultBorderColor[index]);
 
-            })
+            });
 
-            var ctx = document.getElementById("voteChart").getContext('2d');
-            var myChart = new Chart(ctx, {
+            let ctx = document.getElementById("voteChart").getContext('2d');
+            let myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: labels,

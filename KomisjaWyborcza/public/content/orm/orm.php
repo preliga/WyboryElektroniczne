@@ -24,7 +24,7 @@ class orm extends Action
         $ormTemplatesPath = Config::getInstance()->getConfig('ormTemplatesPath');
 
         $dataTemplate = $this->getParam('dataTemplate');
-        $dataTemplate = "{$ormTemplatesPath}{$dataTemplate}";
+        $dataTemplate = "{$ormTemplatesPath}templates\\{$dataTemplate}";
 
         $method = $this->getParam('method');
 

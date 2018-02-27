@@ -14,16 +14,5 @@ class results extends Base
     public function onAction()
     {
         $this->addJS('/scripts/lib/Chart.bundle.min.js');
-
-        $results = Vote::getInstance()->count(['amountVotes' => 'v.id'], null, ['v.candidateId'], ['amountVotes DESC', 'name']);
-
-
-        $amountAllVotes = 0;
-        foreach ($results as $result) {
-            $amountAllVotes += $result['amountVotes'];
-        }
-
-        $this->view->results = $results;
-        $this->view->amountAllVotes = $amountAllVotes;
     }
 }
