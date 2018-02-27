@@ -8,6 +8,7 @@
 
 namespace resource\orm\templates;
 
+use library\PigOrm\Collection;
 use resource\orm\baseTemplate;
 
 class Vote extends baseTemplate
@@ -19,6 +20,13 @@ class Vote extends baseTemplate
             ->joinLeft(['c' => 'candidate'], 'c.id = v.candidateId', []);
 
         return $select;
+    }
+
+    public function beforeSaveCollection(Collection $collection, array $notTables = null, array $onlyTables = null)
+    {
+        foreach ($collection as $record) {
+            $record->setSessionDateTime = date('Y-m-d H:i:s');
+        }
     }
 
     protected function createTreeDependency(): array
@@ -38,7 +46,9 @@ class Vote extends baseTemplate
                     'columns' => [
                         'voteId' => 'id',
                         'token',
-                        'candidateId'
+                        'candidateId',
+                        'sessionToken',
+                        'setSessionDateTime',
                     ],
                     'defaultValues' => [
                     ]

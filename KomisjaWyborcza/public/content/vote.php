@@ -16,17 +16,22 @@ class vote extends Base
 {
     public function onAction()
     {
+        $sessionToken = $this->getParam('sessionToken');
+
+        $vote = \resource\orm\templates\Vote::getInstance()->findOne(['sessionToken = ?' => $sessionToken, 'NOW() < DATE_ADD(setSessionDateTime, INTERVAL 5 MINUTE)']);
+
+        if ($vote->empty()) {
+            $this->redirect(\library\PigFramework\model\Config::getInstance()->getConfig('AgencjaUprawnienURL'));
+        }
+
         $candidateId = $this->getPost('candidateId');
 
-        if (empty($candidateId)) {
+        if (is_null($candidateId)) {
             $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Nie wybrano kandydata.");
         }
 
-        $vote = VoteTemplate::getInstance()->createRecord();
-
-        $vote->candidateId = $candidateId != 0 ? $candidateId : null;
-        $vote->token = "XXXXXX";
-
+        $vote->candidateId = $candidateId;
+        $vote->sessionToken = null;
         $vote->save(['candidate']);
 
         $this->redirect(Config::getInstance()->getConfig('homeURL'),[],true,"Oddano głos na kandydata: {$vote->name} {$vote->secondName} {$vote->lastName}");

@@ -20,9 +20,9 @@ td{
 /*#############################*/
 
 body {
-    /*font-family: "Open Sans", Helvetica, Arial, sans-serif;*/
-    background: url('/images/bg.jpg');
-    background-repeat: repeat;
+    font-family: 'Open Sans', sans-serif;
+    background: url('/images/orzel_tlo.png') right 400px no-repeat;
+    background-size:13% auto;
 }
 
 h1, h2, h3, h4, h5, h6, .text-heading {
@@ -57,7 +57,7 @@ h1 {
 }
 
 .bg-faded {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(204, 204, 204, 0.6);
 }
 
 .bg-overlay {
