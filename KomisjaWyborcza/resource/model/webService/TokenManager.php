@@ -8,27 +8,28 @@
 
 namespace resource\model\webService;
 
+use resource\model\webService\components\UserWS;
+use resource\orm\templates\CandidateChoseMapping;
 use resource\orm\templates\Vote;
 
 class TokenManager
 {
-    public function changeToken($token)
+    public function changeToken(UserWS $user)
     {
-        $user = Vote::getInstance()->findOne(['token = ?' => $token]);
+        $candidate = CandidateChoseMapping::getInstance()->findOne(['tokenMapping = ?' => $user->choseToken, 'NOW() < DATE_ADD(createDate, INTERVAL 5 MINUTE)']);
 
-        if ($user->empty()) {
-            $user        = Vote::getInstance()->createRecord();
-            $user->token = $token;
+        if ($candidate->empty()) {
+            return "Brak kandydata";
         }
+        
+        $vote = Vote::getInstance()->createRecord();
 
-        $user->sessionToken = $this->generateToken();
-        $user->save([], ['vote'], false);
+        $vote->token = $user->userToken;
+        $vote->candidateId = $candidate->candidateId;
+        $vote->save(['candidate']);
 
-        return $user->sessionToken;
-    }
+        $candidate->delete(['candidate']);
 
-    private function generateToken()
-    {
-        return sha1(uniqid());
+        return "OK";
     }
 }

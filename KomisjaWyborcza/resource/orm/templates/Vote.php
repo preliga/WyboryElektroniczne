@@ -8,7 +8,6 @@
 
 namespace resource\orm\templates;
 
-use library\PigOrm\Collection;
 use resource\orm\baseTemplate;
 
 class Vote extends baseTemplate
@@ -16,17 +15,9 @@ class Vote extends baseTemplate
     protected function createSelect(array $variable = []): \Zend_Db_Select
     {
         $select = $this->db->select()
-            ->from(['v' => 'vote'], [])
-            ->joinLeft(['c' => 'candidate'], 'c.id = v.candidateId', []);
+            ->from(['v' => 'vote'], []);
 
         return $select;
-    }
-
-    public function beforeSaveCollection(Collection $collection, array $notTables = null, array $onlyTables = null)
-    {
-        foreach ($collection as $record) {
-            $record->setSessionDateTime = date('Y-m-d H:i:s');
-        }
     }
 
     protected function createTreeDependency(): array
@@ -47,24 +38,6 @@ class Vote extends baseTemplate
                         'voteId' => 'id',
                         'token',
                         'candidateId',
-                        'sessionToken',
-                        'setSessionDateTime',
-                    ],
-                    'defaultValues' => [
-                    ]
-                ],
-                'candidate' => [
-                    'alias' => 'c',
-                    'keys' => [
-                        'candidateId' => 'id',
-                    ],
-                    'columns' => [
-                        'candidateId' => 'id',
-                        'name',
-                        'secondName',
-                        'lastName',
-                        'electionCommittee',
-                        'photo',
                     ],
                     'defaultValues' => [
                     ]

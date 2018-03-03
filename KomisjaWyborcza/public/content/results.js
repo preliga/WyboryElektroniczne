@@ -13,7 +13,7 @@ define(
             afterRender() {
                 super.afterRender();
 
-                let voteTemplate = new DateTemplate('Vote');
+                let voteTemplate = new DateTemplate('templates\\vote\\VoteJoinCandidate');
 
                 let column = [];
                 column['amountVotes'] = 'v.id';
@@ -48,7 +48,7 @@ define(
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
-            ]
+            ];
 
             let labels = [];
             let data = [];

@@ -1,4 +1,4 @@
-<form action="vote?sessionToken={$sessionToken}" method="post">
+<form action="/vote" method="post">
 
     {foreach from=$candidates item=candidate name=loop}
 

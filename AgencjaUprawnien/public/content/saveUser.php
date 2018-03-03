@@ -10,13 +10,20 @@
 use library\PigFramework\model\Config;
 use resource\action\Base;
 use resource\orm\templates\{
-    User, TokenList
+    TokenList, User
 };
+use resource\model\webServiceKomisjaWyborcza\components\UserWS;
 
 class saveUser extends Base
 {
     public function onAction()
     {
+        $choseToken = $this->getParam('choseToken');
+
+        if (empty($choseToken)) {
+            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak tokenu wyboru.");
+        }
+
         $pesel = $this->getPost('pesel');
 
         if (empty($pesel)) {
@@ -43,12 +50,14 @@ class saveUser extends Base
             $token->save();
         }
 
-        $client       = new SoapClient(Config::getInstance()->getConfig('KomisjaWyborczaWSDL'), [
+        $client = new SoapClient(Config::getInstance()->getConfig('KomisjaWyborczaWSDL'), [
             'trace'      => 1,
             'cache_wsdl' => WSDL_CACHE_NONE
         ]);
-        $sessionToken = $client->changeToken($user->token);
 
-        $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'), ['sessionToken' => $sessionToken]);
+        $response = $client->changeToken(new UserWS($user->token, $choseToken));
+
+
+        $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'));
     }
 }

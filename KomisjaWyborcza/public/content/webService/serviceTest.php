@@ -21,24 +21,19 @@ function changeToken($user)
     return $tokenManager->changeToken($user);
 }
 
-class service extends Base
+class serviceTest extends Base
 {
-    protected $server;
-
-    public function init()
-    {
-        parent::init();
-        ini_set("soap.wsdl_cache_enabled", "0");
-    }
-
     public function onAction()
     {
-        $this->server = new SoapServer(Config::getInstance()->getConfig('pathWSDL'));
-        $this->server->addFunction('changeToken');
-    }
 
-    public function render()
-    {
-        $this->server->handle();
+        $userToken = "afba5c1a94a5a1b4a9c83700c49e09b4dfbc82fa7c913b87b1e36d01bc7ed4fd";
+        
+        $choseToken = "297d9e7027a61c8f47a8671234c6e8b7976dba0b";
+
+        $user = new UserWS($userToken, $choseToken);
+
+        $tokenManager = new TokenManager();
+
+        $tokenManager->changeToken($user);
     }
 }
