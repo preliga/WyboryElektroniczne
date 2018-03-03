@@ -21,10 +21,14 @@ class TokenManager
         if ($candidate->empty()) {
             return "Brak kandydata";
         }
-        
-        $vote = Vote::getInstance()->createRecord();
 
-        $vote->token = $user->userToken;
+        $vote = Vote::getInstance()->findOne(['token = ?' => $user->userToken]);
+
+        if ($vote->empty()) {
+            $vote = Vote::getInstance()->createRecord();
+            $vote->token = $user->userToken;
+        }
+
         $vote->candidateId = $candidate->candidateId;
         $vote->save(['candidate']);
 
