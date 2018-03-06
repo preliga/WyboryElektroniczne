@@ -59,9 +59,11 @@ class User extends baseTemplate
                             'tokenId' => 'id',
                             'token',
                             'used',
+                            'isActive',
                         ],
                         'defaultValues' => [
-                            'used' => 0
+                            'used' => 0,
+                            'isActive' => 1
                         ]
                     ]
                 ]

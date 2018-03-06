@@ -9,6 +9,7 @@ return array_merge(
         'KomisjaWyborczaURL'  => 'http://komisjawyborcza.oo',
         'KomisjaWyborczaElectionsURL'  => 'http://komisjawyborcza.oo/elections',
         'KomisjaWyborczaWSDL' => 'http://komisjawyborcza.oo/webService/service?wsdl',
+        'pathWSDL' => 'wsdl/service.wsdl',
         'db'                  => [
             'AgencjaUprawnien' => [
                 'driver'   => 'Mysqli',

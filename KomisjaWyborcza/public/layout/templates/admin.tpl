@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agencja Uprawnień</title>
+    <title>Komisja Wyborcza</title>
 
     {$scriptLoader->includeAllCSS()}
 
@@ -22,6 +22,7 @@
 <a href="/">
     <img src="/images/header.png" width="100%">
 </a>
+<br>
 
 <div class="page">
     <div class="container">
@@ -43,6 +44,11 @@
             {/if}
 
         </div>
+
+        <div class="bg-faded">
+            {include file="../components/admin/menu.tpl"}
+        </div>
+
         <div class="bg-faded p-4 my-4">
             {if file_exists("$file.tpl")}
                 {include file="{$file}.tpl"}
