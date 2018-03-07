@@ -17,7 +17,7 @@ define(
 
                 let column = [];
                 column['amountVotes'] = 'v.id';
-                voteTemplate.count({'amountVotes': 'v.id'}, null, ['v.candidateId'], ['amountVotes DESC', 'name']).then(function(results){
+                voteTemplate.count({'amountVotes': 'v.id'}, {'isActive = ?': '1'}, ['v.candidateId'], ['amountVotes DESC', 'name']).then(function(results){
 
                     let amountAllVotes = 0;
                     results.forEach(function (item, index) {

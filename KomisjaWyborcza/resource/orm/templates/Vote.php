@@ -38,6 +38,7 @@ class Vote extends baseTemplate
                         'voteId' => 'id',
                         'token',
                         'candidateId',
+                        'isActive',
                     ],
                     'defaultValues' => [
                     ]
