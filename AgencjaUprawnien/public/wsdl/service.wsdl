@@ -9,22 +9,22 @@
 
     <xsd:documentation>test</xsd:documentation>
 
-    <!--<wsdl:types>-->
-        <!--<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Library">-->
-            <!--<xsd:complexType name="user">-->
-                <!--<xsd:sequence>-->
-                    <!--<xsd:element name="userToken" type="xsd:string"/>-->
-                    <!--<xsd:element name="choseToken" type="xsd:string"/>-->
-                <!--</xsd:sequence>-->
-            <!--</xsd:complexType>-->
-        <!--</xsd:schema>-->
-    <!--</wsdl:types>-->
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Library">
+            <xsd:complexType name="response">
+                <xsd:sequence>
+                    <xsd:element name="status" type="xsd:string"/>
+                    <xsd:element name="message" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
 
     <wsdl:message name="revokingElectorRequest">
         <wsdl:part name="pesel" type="xs:string"/>
     </wsdl:message>
     <wsdl:message name="revokingElectorResponse">
-        <wsdl:part name="status" type="xs:string"/>
+        <wsdl:part name="response" type="xsd:response"/>
     </wsdl:message>
 
     <wsdl:portType name="Library">

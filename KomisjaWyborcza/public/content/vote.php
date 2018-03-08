@@ -27,6 +27,6 @@ class vote extends Base
         $candidateChoseMapping->candidateId = $candidateId;
         $candidateChoseMapping->save(['candidate'], [], false);
 
-        $this->redirect(Config::getInstance()->getConfig('AgencjaUprawnienURL/authorization'), ['choseToken' => $candidateChoseMapping->tokenMapping], true, "Oddano głos na kandydata");
+        $this->redirect(Config::getInstance()->getConfig('AgencjaUprawnienURL/authorization'), ['choseToken' => $candidateChoseMapping->tokenMapping]);
     }
 }

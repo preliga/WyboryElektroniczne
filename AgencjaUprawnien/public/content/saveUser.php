@@ -12,7 +12,6 @@ use resource\action\Base;
 use resource\orm\templates\{
     TokenList, User
 };
-use resource\model\webServiceKomisjaWyborcza\components\UserWS;
 
 class saveUser extends Base
 {
@@ -50,14 +49,9 @@ class saveUser extends Base
             $token->save();
         }
 
-        $client = new SoapClient(Config::getInstance()->getConfig('KomisjaWyborczaWSDL'), [
-            'trace'      => 1,
-            'cache_wsdl' => WSDL_CACHE_NONE
-        ]);
+        $KWConnector = \resource\model\webServiceKW\KWConnector::getInstance();
+        $response = $KWConnector->changeToken($user->token, $choseToken);
 
-        $response = $client->changeToken(new UserWS($user->token, $choseToken));
-
-
-        $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'));
+        $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'), ['status' => $response->status, 'message' => $response->message]);
     }
 }

@@ -45,9 +45,11 @@ class User extends baseTemplate
                             'fatherName',
                             'motherName',
                             'tokenId',
+                            'isActive'
                         ],
                         'defaultValues' => [
-                            'tokenId' => null
+                            'tokenId' => null,
+                            'isActive' => 1
                         ]
                     ],
                     'token_list' => [
@@ -59,11 +61,9 @@ class User extends baseTemplate
                             'tokenId' => 'id',
                             'token',
                             'used',
-                            'isActive',
                         ],
                         'defaultValues' => [
                             'used' => 0,
-                            'isActive' => 1
                         ]
                     ]
                 ]

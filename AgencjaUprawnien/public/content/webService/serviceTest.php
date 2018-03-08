@@ -7,7 +7,6 @@
  * Time: 22:12
  */
 
-use library\PigFramework\model\Config;
 use resource\action\Base;
 use resource\orm\templates\User;
 
@@ -32,24 +31,11 @@ function revokingElector($pesel)
     return $obj;
 }
 
-class service extends Base
+
+class serviceTest extends Base
 {
-    protected $server;
-
-    public function init()
-    {
-        parent::init();
-        ini_set("soap.wsdl_cache_enabled", "0");
-    }
-
     public function onAction()
     {
-        $this->server = new SoapServer(Config::getInstance()->getConfig('pathWSDL'));
-        $this->server->addFunction('revokingElector');
-    }
-
-    public function render()
-    {
-        $this->server->handle();
+        revokingElector('4');
     }
 }

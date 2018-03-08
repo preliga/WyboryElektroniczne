@@ -6,7 +6,7 @@
  * Time: 11:57
  */
 
-namespace resource\model\webServiceKomisjaWyborcza\components;
+namespace resource\model\webServiceKW\components;
 
 class UserWS
 {

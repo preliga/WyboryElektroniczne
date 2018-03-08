@@ -8,25 +8,18 @@
  */
 
 use resource\action\Admin;
-use library\PigFramework\model\Config;
+use resource\model\webServiceAU\AUConnector;
 
 class revokingElector extends Admin
 {
     public function onAction()
     {
         if ($this->hasPost('pesel')) {
-            $client = new SoapClient(Config::getInstance()->getConfig('AgencjaWyborczaWSDL'), [
-                'trace'      => 1,
-                'cache_wsdl' => WSDL_CACHE_NONE
-            ]);
+            $AUConnector = AUConnector::getInstance();
 
-            $response = $client->revokingElector($this->getPost('pesel'));
+            $response = $AUConnector->revokingElector($this->getPost('pesel'));
 
-            if ($response) {
-                $this->statement->pushStatement('success', 'Wyborca został uniważniony');
-            } else {
-                $this->statement->pushStatement('error', 'Brak wyborcy po podanym numerze PESEL');
-            }
+            $this->statement->pushStatement($response->status, $response->message);
         }
     }
 }

@@ -41,6 +41,7 @@ class Vote extends baseTemplate
                         'isActive',
                     ],
                     'defaultValues' => [
+                        'isActive' => '1'
                     ]
                 ]
             ]

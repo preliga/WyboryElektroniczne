@@ -17,6 +17,12 @@
                     <xsd:element name="choseToken" type="xsd:string"/>
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:complexType name="response">
+                <xsd:sequence>
+                    <xsd:element name="status" type="xsd:string"/>
+                    <xsd:element name="message" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
         </xsd:schema>
     </wsdl:types>
 
@@ -24,7 +30,7 @@
         <wsdl:part name="user" type="xsd:user"/>
     </wsdl:message>
     <wsdl:message name="changeTokenResponse">
-        <wsdl:part name="status" type="xs:boolean"/>
+        <wsdl:part name="response" type="xsd:response"/>
     </wsdl:message>
 
     <wsdl:portType name="Library">
