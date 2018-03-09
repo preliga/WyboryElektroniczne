@@ -22,6 +22,10 @@ td{
     align-items: center;
 }
 
+a.icon{
+    color: black;
+}
+
 /*#############################*/
 
 body {

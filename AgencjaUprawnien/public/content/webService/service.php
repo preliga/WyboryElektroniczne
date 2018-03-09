@@ -32,6 +32,19 @@ function revokingElector($pesel)
     return $obj;
 }
 
+function getValidTokens()
+{
+    $users =  User::getInstance()->find(['used = ?' => 1, 'isActive = ?' => 1]);
+
+    $tokens = [];
+
+    foreach ($users as $user) {
+        $tokens[] = $user->token;
+    }
+
+    return $tokens;
+}
+
 class service extends Base
 {
     protected $server;
@@ -46,6 +59,7 @@ class service extends Base
     {
         $this->server = new SoapServer(Config::getInstance()->getConfig('pathWSDL'));
         $this->server->addFunction('revokingElector');
+        $this->server->addFunction('getValidTokens');
     }
 
     public function render()

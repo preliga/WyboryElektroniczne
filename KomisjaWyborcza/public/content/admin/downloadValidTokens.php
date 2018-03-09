@@ -6,7 +6,17 @@
  * Time: 23:18
  */
 
-class downloadValidTokens
-{
+use \resource\action\Admin;
+use \resource\model\webServiceAU\AUConnector;
 
+class downloadValidTokens extends Admin
+{
+    public function onAction()
+    {
+        $x = AUConnector::getInstance()->getValidTokens();
+
+
+
+        die(var_dump($x));
+    }
 }

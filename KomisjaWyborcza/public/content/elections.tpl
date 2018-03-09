@@ -1,3 +1,8 @@
+<div class="row">
+    <div class="col">
+        <a class="icon" href="/"><i class="fas fa-angle-left fa-4x"></i></a>
+    </div>
+</div>
 <form action="/vote" method="post">
 
     {foreach from=$candidates item=candidate name=loop}

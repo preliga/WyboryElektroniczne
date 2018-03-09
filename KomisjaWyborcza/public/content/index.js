@@ -14,6 +14,10 @@ define(
 
             afterRender() {
                 super.afterRender();
+                
+                $('.div-box').on('click', function(){
+                   window.location = $(this).attr('link')
+                });
             }
         };
     }

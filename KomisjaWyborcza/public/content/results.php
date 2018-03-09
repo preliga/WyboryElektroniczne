@@ -7,12 +7,16 @@
  */
 
 use resource\action\Base;
-use \resource\orm\templates\Vote;
+use resource\orm\templates\Settings;
 
 class results extends Base
 {
     public function onAction()
     {
         $this->addJS('/scripts/lib/Chart.bundle.min.js');
+
+        if (Settings::getInstance()->getSettings('votingEnable') == 1){
+            $this->redirect();
+        }
     }
 }

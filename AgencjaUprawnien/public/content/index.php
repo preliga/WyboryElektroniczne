@@ -9,7 +9,7 @@ class index extends Base
     public function onAction()
     {
         if (!$this->hasParam('choseToken')) {
-            $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'), ['status' => 'error', 'message' => 'Brak głosu']);
+            $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'), ['status' => 'error', 'message' => 'Błąd autoryzacji']);
         }
 
         $choseToken = $this->getParam('choseToken');

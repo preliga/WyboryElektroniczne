@@ -20,26 +20,30 @@ class saveUser extends Base
         $choseToken = $this->getParam('choseToken');
 
         if (empty($choseToken)) {
-            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak tokenu wyboru.");
+            $this->redirect();
+//            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak tokenu wyboru.");
         }
 
         $pesel = $this->getPost('pesel');
 
         if (empty($pesel)) {
-            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak numeru PESEL.");
+            $this->redirect();
+//            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak numeru PESEL.");
         }
 
         $user = User::getInstance()->findOne(['pesel = ?' => $pesel]);
 
         if ($user->empty()) {
-            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak osoby o podanym numerze PESEL");
+            $this->redirect();
+//            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak osoby o podanym numerze PESEL");
         }
 
         if (empty($user->token)) {
             $token = TokenList::getInstance()->getNextToken();
 
             if ($token->empty()) {
-                $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak wolnego tokenu do zapisu");
+                $this->redirect();
+//                $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak wolnego tokenu do zapisu");
             }
 
             $user->tokenId = $token->tokenId;

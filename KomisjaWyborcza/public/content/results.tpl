@@ -1,6 +1,10 @@
+<style>
+
+</style>
+
 <div class="row">
     <div class="col">
-        <a class="btn btn-primary" href="/" role="button">Powrót</a>
+        <a class="icon" href="/"><i class="fas fa-angle-left fa-4x"></i></a>
     </div>
 </div>
 <br>
