@@ -7,17 +7,10 @@
 namespace resource\action;
 
 use library\PigFramework\action\Action;
-use library\PigFramework\model\Config;
-use library\PigFramework\model\Db;
 use Zend_Db_Adapter_Mysqli;
 
 abstract class Base extends Action
 {
-    /**
-     * @var Zend_Db_Adapter_Mysqli
-     */
-    protected $db;
-
     /**
      *
      */
@@ -27,10 +20,6 @@ abstract class Base extends Action
 
         $this->definedJS();
         $this->definedCSS();
-
-        $config = Config::getInstance()->getConfig('db');
-        $db = Db::getInstance($config['KomisjaWyborcza'], 'KomisjaWyborcza');
-        $this->db = $db->getDb();
     }
 
     /**

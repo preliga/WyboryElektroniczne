@@ -14,11 +14,6 @@ use Zend_Db_Adapter_Mysqli;
 abstract class Base extends Action
 {
     /**
-     * @var Zend_Db_Adapter_Mysqli
-     */
-    protected $db;
-
-    /**
      *
      */
     public function init()
@@ -27,10 +22,6 @@ abstract class Base extends Action
 
         $this->definedJS();
         $this->definedCSS();
-
-        $config = Config::getInstance()->getConfig('db');
-        $db = Db::getInstance($config['AgencjaUprawnien'], 'AgencjaUprawnien');
-        $this->db = $db->getDb();
     }
 
     /**

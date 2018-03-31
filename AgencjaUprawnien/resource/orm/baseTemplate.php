@@ -10,6 +10,7 @@ namespace resource\orm;
 
 use library\PigFramework\model\Config;
 use library\PigFramework\model\Db;
+use library\PigFramework\model\Registry;
 use library\PigOrm\DataTemplate;
 use library\PigOrm\Record;
 
@@ -39,8 +40,6 @@ abstract class baseTemplate extends DataTemplate
 
     protected function getDb(): \Zend_Db_Adapter_Mysqli
     {
-        $config = Config::getInstance()->getConfig('db');
-        $db = Db::getInstance($config['AgencjaUprawnien'], 'AgencjaUprawnien');
-        return  $db->getDb();
+        return Registry::getInstance()->db;
     }
 }

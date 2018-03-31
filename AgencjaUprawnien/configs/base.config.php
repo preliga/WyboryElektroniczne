@@ -7,5 +7,6 @@
 return [
     'appPath' => "",
     'ormPath' => "/orm",
+    'registryPath' => '../resource/registry/',
     'ormTemplatesPath' => "resource\orm\\"
 ];
