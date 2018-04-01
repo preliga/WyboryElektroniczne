@@ -6,7 +6,9 @@
  * Time: 20:56
  */
 
-use \resource\action\Admin;
+namespace content\admin;
+
+use resource\action\Admin;
 use resource\orm\templates\Admin as AdminTemplate;
 
 class logout extends Admin

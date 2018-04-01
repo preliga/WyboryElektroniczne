@@ -39,12 +39,14 @@ class AUConnector
 
     public function revokingElector($pesel)
     {
-        return $this->client->revokingElector($pesel);
+        $result = $this->client->revokingElector($pesel);
+        return json_decode($result->revokingElectorResult);
     }
 
     public function getValidTokens()
     {
-        $tokens = $this->client->getValidTokens();
+        $result = $this->client->getValidTokens();
+        $tokens = json_decode($result->revokingElectorResult);
 
         if (!empty($tokens)) {
             return $tokens->string;

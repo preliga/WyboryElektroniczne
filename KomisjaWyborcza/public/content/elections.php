@@ -7,6 +7,8 @@
  * Time: 22:21
  */
 
+namespace content;
+
 use resource\action\Base;
 use resource\orm\templates\{
     Candidate

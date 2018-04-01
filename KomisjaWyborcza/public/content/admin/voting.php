@@ -7,6 +7,8 @@
  * Time: 20:01
  */
 
+namespace content\admin;
+
 use resource\action\Admin;
 use resource\orm\templates\Settings;
 

@@ -7,12 +7,12 @@
  * Time: 15:35
  */
 
+namespace content\orm;
+
 use library\PigFramework\model\Config;
 use library\PigOrm\action\Action;
 use library\PigOrm\model\{
-    DataTemplateManager,
-    RecordManager,
-    CollectionManager
+    CollectionManager, DataTemplateManager, RecordManager
 };
 
 class orm extends Action

@@ -7,6 +7,8 @@
  * Time: 18:52
  */
 
+namespace content\admin;
+
 use resource\action\Base;
 use resource\orm\templates\Admin;
 

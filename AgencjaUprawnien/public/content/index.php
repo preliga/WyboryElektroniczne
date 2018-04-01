@@ -1,5 +1,7 @@
 <?php
 
+namespace content;
+
 use resource\action\Base;
 use library\PigFramework\model\Config;
 

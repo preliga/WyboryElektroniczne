@@ -9,8 +9,7 @@
 namespace resource\orm\templates;
 
 
-use library\PigFramework\model\Session;
-use library\PigOrm\Record;
+use library\PigFramework\model\Registry;
 use resource\orm\baseTemplate;
 
 class Admin extends baseTemplate
@@ -18,8 +17,8 @@ class Admin extends baseTemplate
     protected function createSelect(array $variable = []): \Zend_Db_Select
     {
         $select = $this->db->select()
-                           ->from(['a' => 'admin'], [])
-                           ->join(['g' => 'group'], 'g.id = a.groupId');
+            ->from(['a' => 'admin'], [])
+            ->join(['g' => 'group'], 'g.id = a.groupId');
 
         return $select;
     }
@@ -65,7 +64,7 @@ class Admin extends baseTemplate
             ];
     }
 
-    public function login($login, $password) : bool
+    public function login($login, $password): bool
     {
         $admin = $this->findOne(['login = ?' => $login]);
 
@@ -78,7 +77,7 @@ class Admin extends baseTemplate
             $admin->sessionCreate = date('Y-m-d H:i:s');
             $admin->save();
 
-            Session::set('sessionId', $sessionId);
+            Registry::getInstance()->session->sessionId = $sessionId;
         }
 
         return $result;
@@ -93,17 +92,18 @@ class Admin extends baseTemplate
             $admin->sessionCreate = null;
             $admin->save();
 
-            Session::set('sessionId', null);
+            Registry::getInstance()->session->sessionId = null;
         }
     }
 
     public function getAdminBySession()
     {
-        if (empty(Session::get('sessionId'))) {
+        $sessionId = Registry::getInstance()->session->sessionId;
+        if (empty($sessionId)) {
             return null;
         }
 
-        $admin = $this->findOne(['sessionId = ?' => Session::get('sessionId'), 'NOW() < DATE_ADD(sessionCreate, INTERVAL 5 MINUTE)']);
+        $admin = $this->findOne(['sessionId = ?' => $sessionId, 'NOW() < DATE_ADD(sessionCreate, INTERVAL 5 MINUTE)']);
 
         return $admin;
     }

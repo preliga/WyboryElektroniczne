@@ -38,6 +38,7 @@ class KWConnector
 
     public function changeToken($userToken, $choseToken)
     {
-        return $this->client->changeToken(new UserWS($userToken, $choseToken));
+        $result = $this->client->changeToken(new UserWS($userToken, $choseToken));
+        return json_decode($result->changeTokenResult);
     }
 }

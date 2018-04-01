@@ -6,13 +6,18 @@
  * Time: 23:18
  */
 
-use \resource\action\Admin;
-use \resource\model\webServiceAU\AUConnector;
+namespace content\admin;
+
+use resource\action\Admin;
+use resource\model\webServiceAU\AUConnector;
 
 class downloadValidTokens extends Admin
 {
     public function onAction()
     {
+
+//        die(phpinfo());
+
         $x = AUConnector::getInstance()->getValidTokens();
 
 

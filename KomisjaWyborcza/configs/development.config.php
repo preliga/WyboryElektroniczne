@@ -8,7 +8,10 @@ return array_merge(
         'homeURL' => 'http://komisjawyborcza.oo',
         'AgencjaUprawnienURL' => 'http://agencjauprawnien.oo/',
         'AgencjaUprawnienURL/authorization' => 'http://agencjauprawnien.oo/',
+
         'AgencjaWyborczaWSDL' => 'http://agencjauprawnien.oo/webService/service?wsdl',
+        'KomisjaWyborczaWSDL' => 'http://komisjawyborcza.oo/webService/service?wsdl',
+
         'pathWSDL' => 'wsdl/service.wsdl',
         'db' => [
             'KomisjaWyborcza' => [

@@ -7,10 +7,12 @@
  * Time: 23:28
  */
 
+namespace content;
+
 use library\PigFramework\model\Config;
 use resource\action\Base;
 use resource\orm\templates\{
-    CandidateChoseMapping, Vote as VoteTemplate
+    CandidateChoseMapping
 };
 
 class vote extends Base

@@ -7,6 +7,8 @@
  * Time: 20:24
  */
 
+namespace content\admin;
+
 use resource\action\Admin;
 use resource\model\webServiceAU\AUConnector;
 

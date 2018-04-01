@@ -6,6 +6,8 @@
  * Time: 19:40
  */
 
+namespace content\admin;
+
 use resource\action\Admin;
 
 class index extends Admin

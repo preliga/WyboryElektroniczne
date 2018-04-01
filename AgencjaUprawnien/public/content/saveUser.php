@@ -7,6 +7,8 @@
  * Time: 18:29
  */
 
+namespace content;
+
 use library\PigFramework\model\Config;
 use resource\action\Base;
 use resource\orm\templates\{
