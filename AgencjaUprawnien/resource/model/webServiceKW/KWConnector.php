@@ -21,10 +21,7 @@ class KWConnector
 
     protected function __construct()
     {
-        $this->client = new \SoapClient(Config::getInstance()->getConfig('KomisjaWyborczaWSDL'), [
-            'trace' => 1,
-            'cache_wsdl' => WSDL_CACHE_NONE
-        ]);
+        $this->client = new \Zend_Soap_Client(Config::getInstance()->getConfig('KomisjaWyborczaWSDL'));
     }
 
     public static function getInstance(): KWConnector

@@ -21,11 +21,7 @@ class AUConnector
 
     protected function __construct()
     {
-        $this->client = new \SoapClient(Config::getInstance()->getConfig('AgencjaWyborczaWSDL'), [
-            'trace' => 1,
-            'cache_wsdl' => WSDL_CACHE_NONE
-        ]);
-
+        $this->client = new \Zend_Soap_Client(Config::getInstance()->getConfig('AgencjaWyborczaWSDL'));
     }
 
     public static function getInstance(): AUConnector
