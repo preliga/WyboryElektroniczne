@@ -16,7 +16,8 @@ class webServiceWorker
 {
     public function changeToken($user)
     {
-        $candidate = CandidateChoseMapping::getInstance()->findOne(['tokenMapping = ?' => $user->choseToken, 'NOW() < DATE_ADD(createDate, INTERVAL 5 MINUTE)']);
+        $candidate = CandidateChoseMapping::getInstance()->findOne(['tokenMapping = ?' => $user->choseToken, 'NOW() < DATE_ADD(createDate, INTERVAL 50 MINUTE)']);
+
         $obj = new \stdClass();
 
         if ($candidate->empty()) {

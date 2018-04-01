@@ -2,8 +2,8 @@
 
 namespace content;
 
-use resource\action\Base;
 use library\PigFramework\model\Config;
+use resource\action\Base;
 
 class index extends Base
 {

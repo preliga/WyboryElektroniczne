@@ -12,6 +12,9 @@ return array_merge(
         'AgencjaWyborczaWSDL' => 'http://agencjauprawnien.oo/webService/service?wsdl',
         'KomisjaWyborczaWSDL' => 'http://komisjawyborcza.oo/webService/service?wsdl',
 
+        'publicKeyPath' => '../configs/public.pem',
+        'privateKeyPath' => '../configs/private.pem',
+
         'db' => [
             'KomisjaWyborcza' => [
                 'driver' => 'Mysqli',

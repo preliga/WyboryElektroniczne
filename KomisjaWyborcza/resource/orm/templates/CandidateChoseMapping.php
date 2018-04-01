@@ -8,7 +8,6 @@
 
 namespace resource\orm\templates;
 
-use library\PigOrm\Collection;
 use resource\orm\baseTemplate;
 
 class CandidateChoseMapping extends baseTemplate
@@ -16,9 +15,7 @@ class CandidateChoseMapping extends baseTemplate
     protected function createSelect(array $variable = []): \Zend_Db_Select
     {
         $select = $this->db->select()
-            ->from(['ccm' => 'candidate_chose_mapping'], [])
-            ->joinLeft(['c' => 'candidate'], 'c.id = ccm.candidateId', [])
-        ;
+            ->from(['ccm' => 'candidate_chose_mapping'], []);
 
         return $select;
     }
@@ -27,43 +24,27 @@ class CandidateChoseMapping extends baseTemplate
     {
         // kolumny łączone joinem muszą mieć takie same nazwy wtedy są scalane i updatowane automatycznie
         return
-        [
-            'keys' => [
-                'tokenMapping' => 'ccm.tokenMapping', // z aliasem !!!
-            ],
-            'tables' => [
-                'candidate_chose_mapping' => [
-                    'alias' => 'ccm',
-                    'keys' => [   /// ustalić tylko jeden klucz
-                        'tokenMapping',
-                    ],
-                    'columns' => [
-                        'tokenMapping',
-                        'candidateId',
-                        'createDate',
-                    ],
-                    'defaultValues' => [
-                        'tokenMapping' => sha1(date('Y-m-d H:i:s')),
-                        'createDate' => date('Y-m-d H:i:s')
-                    ]
+            [
+                'keys' => [
+                    'tokenMapping' => 'ccm.tokenMapping', // z aliasem !!!
                 ],
-                'candidate' => [
-                    'alias' => 'c',
-                    'keys' => [
-                        'candidateId' => 'id',
-                    ],
-                    'columns' => [
-                        'candidateId' => 'id',
-                        'name',
-                        'secondName',
-                        'lastName',
-                        'electionCommittee',
-                        'photo'
-                    ],
-                    'defaultValues' => [
+                'tables' => [
+                    'candidate_chose_mapping' => [
+                        'alias' => 'ccm',
+                        'keys' => [   /// ustalić tylko jeden klucz
+                            'tokenMapping',
+                        ],
+                        'columns' => [
+                            'tokenMapping',
+                            'candidateId',
+                            'createDate',
+                        ],
+                        'defaultValues' => [
+                            'tokenMapping' => sha1(date('Y-m-d H:i:s')),
+                            'createDate' => date('Y-m-d H:i:s')
+                        ]
                     ]
                 ]
-            ]
-        ];
+            ];
     }
 }
