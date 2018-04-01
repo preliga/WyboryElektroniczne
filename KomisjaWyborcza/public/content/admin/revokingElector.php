@@ -20,7 +20,6 @@ class revokingElector extends Admin
             $AUConnector = AUConnector::getInstance();
 
             $response = $AUConnector->revokingElector($this->getPost('pesel'));
-
             $this->statement->pushStatement($response->status, $response->message);
         }
     }

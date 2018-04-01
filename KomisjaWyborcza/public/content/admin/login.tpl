@@ -3,7 +3,7 @@
 <div class="text-center login-box" style="padding:50px 0">
     <div class="logo">login</div>
     <div class="login-form-1">
-        <form id="login-form" class="text-left" action="" method="post">
+        <form id="login-form" class="text-left" action="/admin/login" method="post">
             <div class="main-login-form">
                 <div class="login-group">
                     <div class="form-group">

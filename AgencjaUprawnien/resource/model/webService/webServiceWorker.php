@@ -9,18 +9,13 @@
 namespace resource\model\webService;
 
 
-use resource\orm\templates\CandidateChoseMapping;
 use resource\orm\templates\User;
-use resource\orm\templates\Vote;
 
 class webServiceWorker
 {
-    function revokingElector($pesel)
+    function revokingElector($user)
     {
-        return ['revokingElectorResult' => 'test'];
-
-
-        $elector = User::getInstance()->findOne(['pesel = ?' => $pesel]);
+        $elector = User::getInstance()->findOne(['pesel = ?' => $user->pesel]);
 
         $obj = new \stdClass();
 
@@ -41,7 +36,7 @@ class webServiceWorker
 
     function getValidTokens()
     {
-        $users =  User::getInstance()->find(['used = ?' => 1, 'isActive = ?' => 1]);
+        $users = User::getInstance()->find(['used = ?' => 1, 'isActive = ?' => 1]);
 
         $tokens = [];
 

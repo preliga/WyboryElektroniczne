@@ -35,7 +35,7 @@ class AUConnector
 
     public function revokingElector($pesel)
     {
-        $result = $this->client->revokingElector($pesel);
+        $result = $this->client->revokingElector(['pesel' => $pesel]);
         return json_decode($result->revokingElectorResult);
     }
 

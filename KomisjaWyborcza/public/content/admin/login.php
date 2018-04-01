@@ -36,7 +36,7 @@ class login extends Base
                 }
 
             } else {
-                $this->statement->pushStatement('error', 'Brak loginu lub hasła');
+                $this->statement->pushStatement('error', 'Sesja wygasła');
             }
         }
     }

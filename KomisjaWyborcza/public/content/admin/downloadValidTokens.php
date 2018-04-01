@@ -15,13 +15,14 @@ class downloadValidTokens extends Admin
 {
     public function onAction()
     {
-        $x = AUConnector::getInstance()->getValidTokens();
+        $tokens = AUConnector::getInstance()->getValidTokens();
 
-        echo "<pre>";
-        print_r($x);
-        echo "</pre>";
-        die();
-        
-        die(var_dump($x));
+        $this->registry->db
+            ->update('vote', ['isActive' => 1], ['token IN (?)' => $tokens]);
+
+        $this->registry->db
+            ->update('vote', ['isActive' => 0], ['token NOT IN (?)' => $tokens]);
+
+        $this->redirect('/admin/voting', [], true, 'Zaktualizowano bazę aktywnych głosów');
     }
 }
