@@ -15,13 +15,13 @@ class downloadValidTokens extends Admin
 {
     public function onAction()
     {
-
-//        die(phpinfo());
-
         $x = AUConnector::getInstance()->getValidTokens();
 
-
-
+        echo "<pre>";
+        print_r($x);
+        echo "</pre>";
+        die();
+        
         die(var_dump($x));
     }
 }

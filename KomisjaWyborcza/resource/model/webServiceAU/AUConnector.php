@@ -22,7 +22,7 @@ class AUConnector
     protected function __construct()
     {
         $this->client = new \SoapClient(Config::getInstance()->getConfig('AgencjaWyborczaWSDL'), [
-            'trace'      => 1,
+            'trace' => 1,
             'cache_wsdl' => WSDL_CACHE_NONE
         ]);
 
@@ -30,7 +30,7 @@ class AUConnector
 
     public static function getInstance(): AUConnector
     {
-        if(empty(self::$instance)) {
+        if (empty(self::$instance)) {
             self::$instance = new self();
         }
 
@@ -46,12 +46,6 @@ class AUConnector
     public function getValidTokens()
     {
         $result = $this->client->getValidTokens();
-        $tokens = json_decode($result->revokingElectorResult);
-
-        if (!empty($tokens)) {
-            return $tokens->string;
-        } else {
-            return null;
-        }
+        return json_decode($result->getValidTokensResult);
     }
 }

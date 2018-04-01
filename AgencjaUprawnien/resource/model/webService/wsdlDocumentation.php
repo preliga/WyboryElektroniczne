@@ -13,7 +13,7 @@ class wsdlDocumentation
     /**
      * Revoking Elector
      *
-     * @param $pesel
+     * @param string $pesel
      * @return string
      */
     function revokingElector($pesel)

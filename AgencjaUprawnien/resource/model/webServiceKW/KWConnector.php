@@ -9,7 +9,6 @@
 namespace resource\model\webServiceKW;
 
 use library\PigFramework\model\Config;
-use resource\model\webServiceKW\components\UserWS;
 
 class KWConnector
 {
@@ -23,14 +22,14 @@ class KWConnector
     protected function __construct()
     {
         $this->client = new \SoapClient(Config::getInstance()->getConfig('KomisjaWyborczaWSDL'), [
-            'trace'      => 1,
+            'trace' => 1,
             'cache_wsdl' => WSDL_CACHE_NONE
         ]);
     }
 
     public static function getInstance(): KWConnector
     {
-        if(empty(self::$instance)) {
+        if (empty(self::$instance)) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -38,7 +37,7 @@ class KWConnector
 
     public function changeToken($userToken, $choseToken)
     {
-        $result = $this->client->changeToken(new UserWS($userToken, $choseToken));
+        $result = $this->client->changeToken(['userToken' => $userToken, 'choseToken' => $choseToken]);
         return json_decode($result->changeTokenResult);
     }
 }

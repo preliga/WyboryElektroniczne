@@ -1,6 +1,6 @@
 <?php
 
-$baseConfig = include ('../configs/base.config.php');
+$baseConfig = include('../configs/base.config.php');
 
 return array_merge(
     $baseConfig,
@@ -12,7 +12,6 @@ return array_merge(
         'AgencjaWyborczaWSDL' => 'http://agencjauprawnien.oo/webService/service?wsdl',
         'KomisjaWyborczaWSDL' => 'http://komisjawyborcza.oo/webService/service?wsdl',
 
-        'pathWSDL' => 'wsdl/service.wsdl',
         'db' => [
             'KomisjaWyborcza' => [
                 'driver' => 'Mysqli',

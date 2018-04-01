@@ -17,6 +17,9 @@ class webServiceWorker
 {
     function revokingElector($pesel)
     {
+        return ['revokingElectorResult' => 'test'];
+
+
         $elector = User::getInstance()->findOne(['pesel = ?' => $pesel]);
 
         $obj = new \stdClass();
@@ -46,6 +49,6 @@ class webServiceWorker
             $tokens[] = $user->token;
         }
 
-        return ['revokingElectorResult' => json_encode($tokens)];
+        return ['getValidTokensResult' => json_encode($tokens)];
     }
 }
