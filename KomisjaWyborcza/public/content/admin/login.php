@@ -30,7 +30,7 @@ class login extends Base
                 $result = Admin::getInstance()->login($this->getPost('login'), $this->getPost('password'));
 
                 if ($result) {
-                    $this->redirect('/admin/index');
+                    $this->redirect($this->url);
                 } else {
                     $this->statement->pushStatement('error', 'Błędny login lub hasło');
                 }

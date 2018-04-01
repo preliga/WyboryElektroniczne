@@ -25,7 +25,7 @@ abstract class Admin extends Base
         $this->admin = AdminTemplate::getInstance()->getAdminBySession();
 
         if (empty($this->admin) || $this->admin->empty()) {
-            $this->redirect('/admin/login', []);
+            $this->forward('/admin/login');
         }
     }
 
