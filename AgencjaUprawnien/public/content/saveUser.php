@@ -11,8 +11,9 @@ namespace content;
 
 use library\PigFramework\model\Config;
 use resource\action\Base;
+use resource\model\webServiceKW\KWConnector;
 use resource\orm\templates\{
-    TokenList, User
+    User
 };
 
 class saveUser extends Base
@@ -23,39 +24,32 @@ class saveUser extends Base
 
         if (empty($choseToken)) {
             $this->redirect();
-//            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak tokenu wyboru.");
         }
 
         $pesel = $this->getPost('pesel');
 
         if (empty($pesel)) {
             $this->redirect();
-//            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak numeru PESEL.");
         }
 
         $user = User::getInstance()->findOne(['pesel = ?' => $pesel]);
 
         if ($user->empty()) {
             $this->redirect();
-//            $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak osoby o podanym numerze PESEL");
         }
 
         if (empty($user->token)) {
-            $token = TokenList::getInstance()->getNextToken();
+            $userToken = $this->getPost('userToken');
+            $tokenId = $this->getPost('tokenId');
 
-            if ($token->empty()) {
-                $this->redirect();
-//                $this->redirect(Config::getInstance()->getConfig('homeURL'), [], false, "Brak wolnego tokenu do zapisu");
-            }
+            $user->tokenId = $tokenId;
+            $user->token = $userToken;
+            $user->used = true;
 
-            $user->tokenId = $token->tokenId;
-            $user->save(['token_list'], ['user']);
-
-            $token->used = 1;
-            $token->save();
+            $user->save();
         }
 
-        $KWConnector = \resource\model\webServiceKW\KWConnector::getInstance();
+        $KWConnector = KWConnector::getInstance();
         $response = $KWConnector->changeToken($user->token, $choseToken);
 
         $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'), ['status' => $response->status, 'message' => $response->message]);

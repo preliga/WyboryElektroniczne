@@ -25,9 +25,17 @@
         </div>
         <br>
         <div class="row justify-content-md-center">
+            <div class="col col-lg-8">
+                <input type="text" class="form-control" name='userToken' placeholder="losowy token" value="{$token->token}" minlength="64" required>
+                <input type="text" class="form-control" name='tokenId' value="{$token->tokenId}" required hidden>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-md-center">
             <div class="col col-lg-4">
                 <button type="submit" class="btn btn-success">Zaloguj</button>
             </div>
         </div>
+
     </form>
 </div>
