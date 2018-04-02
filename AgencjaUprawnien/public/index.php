@@ -1,11 +1,13 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
-require __DIR__ . '/../library/PigFramework/App.php';
-require __DIR__.'/env.php';
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/env.php';
+
+use library\PigFramework\App;
+use library\PigFramework\model\router\RouterStandard;
 
 // Define path to application directory
-defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) .'/..'));
+defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/..'));
 
 // Define application environment
 defined('APPLICATION_ENV') || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
@@ -16,5 +18,6 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
-$pigFramework = new App();
+$router = new RouterStandard();
+$pigFramework = new App($router);
 $pigFramework->run();
