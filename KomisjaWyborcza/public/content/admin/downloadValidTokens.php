@@ -10,6 +10,7 @@ namespace content\admin;
 
 use resource\action\Admin;
 use resource\model\webServiceAU\AUConnector;
+use resource\orm\templates\Settings;
 
 /**
  * Class downloadValidTokens
@@ -21,6 +22,10 @@ class downloadValidTokens extends Admin
 {
     public function onAction()
     {
+        if (Settings::getInstance()->getSettings('votingEnable') == 1) {
+            $this->redirect('/admin/voting', [], true, 'Wybory muszą być wyłączone');
+        }
+
         $tokens = AUConnector::getInstance()->getValidTokens();
 
         $this->registry->db
@@ -28,6 +33,8 @@ class downloadValidTokens extends Admin
 
         $this->registry->db
             ->update('vote', ['isActive' => 0], ['token NOT IN (?)' => $tokens]);
+
+        Settings::getInstance()->setSettings('importTokenList', true);
 
         $this->redirect('/admin/voting', [], true, 'Zaktualizowano bazę aktywnych głosów');
     }
