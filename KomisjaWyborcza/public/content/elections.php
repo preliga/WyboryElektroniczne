@@ -14,6 +14,11 @@ use resource\orm\templates\{
     Candidate
 };
 
+/**
+ * Class elections
+ *
+ * @Route("/elections")
+ */
 class elections extends Base
 {
     public function onAction()

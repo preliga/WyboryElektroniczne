@@ -5,6 +5,8 @@ $baseConfig = include('../configs/base.config.php');
 return array_merge(
     $baseConfig,
     [
+        'enableCreationRoutes' => true,
+
         'homeURL' => 'http://agencjauprawnien.oo',
         'KomisjaWyborczaURL' => 'http://komisjawyborcza.oo',
         'KomisjaWyborczaElectionsURL' => 'http://komisjawyborcza.oo/elections',

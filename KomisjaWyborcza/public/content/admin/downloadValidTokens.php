@@ -11,6 +11,12 @@ namespace content\admin;
 use resource\action\Admin;
 use resource\model\webServiceAU\AUConnector;
 
+/**
+ * Class downloadValidTokens
+ *
+ * @package content\admin
+ * @Route("/admin/downloadValidTokens")
+ */
 class downloadValidTokens extends Admin
 {
     public function onAction()
