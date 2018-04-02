@@ -31,7 +31,7 @@ class vote extends Base
         );
 
         $candidateChoseMapping = CandidateChoseMapping::getInstance()->createRecord();
-        $candidateChoseMapping->candidateId = $crypter->encrypt($candidateId);
+        $candidateChoseMapping->candidateId = $crypter->encrypt($candidateId . "_" . sha1(uniqid()));
         $candidateChoseMapping->save(['candidate'], [], false);
 
         $this->redirect(Config::getInstance()->getConfig('AgencjaUprawnienURL/authorization'), ['choseToken' => $candidateChoseMapping->tokenMapping]);
