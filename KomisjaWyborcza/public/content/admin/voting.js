@@ -8,6 +8,7 @@ define(
         return class voting extends Base {
 
             initAction() {
+
             }
 
             afterRender() {
@@ -19,6 +20,12 @@ define(
                         'alias': 'votingEnable', 'value': 0
                     }).then(function () {
                         $('.download-valid-tokens').show();
+
+                        $.notify({
+                            message: "Wybory zostały wyłączone"
+                        },{
+                            type: 'danger'
+                        });
                     });
                 });
 
@@ -39,6 +46,12 @@ define(
                                         'value': 0
                                     }).then(function () {
                                         $('.buttons').hide();
+
+                                        $.notify({
+                                            message: "Wybory zostały włączone"
+                                        },{
+                                            type: 'success'
+                                        });
                                     });
                                 });
                             });
@@ -54,6 +67,12 @@ define(
                         'value': 1
                     }).then(function () {
                         button.attr('disabled', true);
+
+                        $.notify({
+                            message: "Wyniki zostały opublikowane"
+                        },{
+                            type: 'success'
+                        });
                     });
                 })
             }
