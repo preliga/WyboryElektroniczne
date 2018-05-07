@@ -67,7 +67,7 @@ define(
                     amountPage++;
                 }
 
-                for (let i = 1; i < amountPage; i++) {
+                for (let i = 1; i <= amountPage; i++) {
                     let li = "<li page='{page}'><a href='#'>{page}</a></li>";
 
                     li = li
