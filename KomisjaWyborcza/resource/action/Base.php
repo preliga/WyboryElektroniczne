@@ -8,7 +8,6 @@ namespace resource\action;
 
 use library\PigFramework\action\Action;
 use resource\orm\templates\Settings;
-use Zend_Db_Adapter_Mysqli;
 
 abstract class Base extends Action
 {
@@ -27,6 +26,11 @@ abstract class Base extends Action
     {
         $settings = Settings::getInstance()->getSettings();
         $this->view->settings = $settings;
+    }
+
+    public function postAction()
+    {
+        $this->view->post = $this->getPost();
     }
 
     /**

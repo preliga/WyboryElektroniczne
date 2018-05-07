@@ -10,6 +10,7 @@ namespace resource\orm\templates;
 
 
 use library\PigFramework\model\Registry;
+use library\PigOrm\Record;
 use resource\orm\baseTemplate;
 
 class Admin extends baseTemplate
@@ -64,11 +65,18 @@ class Admin extends baseTemplate
             ];
     }
 
+    public function getAdmin($login, $password)
+    {
+        $admin = $this->findOne(['login = ?' => $login]);
+        $result = $admin->empty() ? false : password_verify($password, $admin->password);
+        return $result ? $admin : null;
+    }
+
     public function login($login, $password): bool
     {
         $admin = $this->findOne(['login = ?' => $login]);
 
-        $result = password_verify($password, $admin->password);
+        $result = $admin->empty() ? false : password_verify($password, $admin->password);
 
         if ($result) {
             $sessionId = session_create_id();

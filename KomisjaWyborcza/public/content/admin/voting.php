@@ -16,7 +16,5 @@ class voting extends Admin
 {
     public function onAction()
     {
-//        $settings = Settings::getInstance()->getSettings();
-//        $this->view->settings = $settings;
     }
 }
