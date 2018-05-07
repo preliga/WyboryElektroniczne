@@ -17,7 +17,7 @@ class results extends Base
     {
         $this->addJS('/scripts/lib/Chart.bundle.min.js');
 
-        if (Settings::getInstance()->getSettings('votingEnable') == 1) {
+        if (Settings::getInstance()->getSettings('publicResult') == 0) {
             $this->redirect();
         }
     }

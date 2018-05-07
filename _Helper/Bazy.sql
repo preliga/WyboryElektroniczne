@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Wersja serwera:               10.2.6-MariaDB - mariadb.org binary distribution
+-- Wersja serwera:               10.2.6-MariaDB-log - mariadb.org binary distribution
 -- Serwer OS:                    Win64
 -- HeidiSQL Wersja:              9.4.0.5125
 -- --------------------------------------------------------
@@ -13,20 +13,18 @@
 
 
 -- Zrzut struktury bazy danych agencjauprawnien
-DROP DATABASE IF EXISTS `agencjauprawnien`;
 CREATE DATABASE IF NOT EXISTS `agencjauprawnien` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci */;
 USE `agencjauprawnien`;
 
 -- Zrzut struktury tabela agencjauprawnien.token_list
-DROP TABLE IF EXISTS `token_list`;
 CREATE TABLE IF NOT EXISTS `token_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `token` varchar(64) COLLATE utf8_polish_ci DEFAULT NULL,
+  `token` varchar(1024) COLLATE utf8_polish_ci DEFAULT NULL,
   `used` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=429 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
--- Zrzucanie danych dla tabeli agencjauprawnien.token_list: ~426 rows (około)
+-- Zrzucanie danych dla tabeli agencjauprawnien.token_list: ~9 rows (około)
 DELETE FROM `token_list`;
 /*!40000 ALTER TABLE `token_list` DISABLE KEYS */;
 INSERT INTO `token_list` (`id`, `token`, `used`) VALUES
@@ -46,39 +44,39 @@ INSERT INTO `token_list` (`id`, `token`, `used`) VALUES
 	(14, '7f182961ab96c0ccaa7edab52d34ede46d53de9f7c913b87b1e36d01bc7ed4fd', 1),
 	(15, 'f6e9cb29367d1ccec3aa3d302859650f9474fa5c64e04dacc68aee1bdc8d4af7', 1),
 	(16, 'acb567d7688c72ec43f849ac24dc34c44668ebf664e04dacc68aee1bdc8d4af7', 1),
-	(17, '7c8a29543bbddfa42185512abed5e6acf47030f564e04dacc68aee1bdc8d4af7', 0),
-	(18, '944da0d0e2488b03ea01f0fa80fdb1609157a8ec64e04dacc68aee1bdc8d4af7', 0),
-	(19, '65b4bb430e1ae84a17f62fbf75f233763c22a26e64e04dacc68aee1bdc8d4af7', 0),
-	(20, '96709317a9f2a7b4af3ceb68c16e87ab07193c9764e04dacc68aee1bdc8d4af7', 0),
-	(21, 'd5595c286a3c51942849624a8986cdfc519ed6f264e04dacc68aee1bdc8d4af7', 0),
-	(22, 'ace4199f8d3322d80fcea21456e454c651fc0bc364e04dacc68aee1bdc8d4af7', 0),
-	(23, '6a4cc2caf74fae03e284fcb95d9bf540faf23bee64e04dacc68aee1bdc8d4af7', 0),
-	(24, 'c50e6c033a948d047f34bbccf1e2e3fd597c4c5a64e04dacc68aee1bdc8d4af7', 0),
-	(25, 'c160cd0b00c4f59e621b0ceb0a9290bcd05cad4164e04dacc68aee1bdc8d4af7', 0),
-	(26, '6bc478dab6eceab16240d80cb3cce5bee432e91164e04dacc68aee1bdc8d4af7', 0),
-	(27, 'cb871ed4580f2b415a48cb23798e2e138f286099a3fcab8461c9675765b95e46', 0),
-	(28, 'ec78532cba9568bdd5418e1d4915b0d372d10bcaa3fcab8461c9675765b95e46', 0),
-	(29, '0a82003dd7378aa535443e54c00c23c30772266da3fcab8461c9675765b95e46', 0),
-	(30, 'f744cd142e4a63565930f047a0b4d362f51b2dc6a3fcab8461c9675765b95e46', 0),
-	(31, 'bc1b68cd6487954f77bf47a58164cb901f27dc5ea3fcab8461c9675765b95e46', 0),
-	(32, '728bb898bea6daef990572310258cfe26e4d2b34a3fcab8461c9675765b95e46', 0),
-	(33, '3933a031de44cceec1744a1701d7386d29d473faa3fcab8461c9675765b95e46', 0),
-	(34, 'a2635dfdcb0ddee3c61788a971ade0576cf4093ea3fcab8461c9675765b95e46', 0),
-	(35, '66b2822f3c18f816294f899892f961225d2471b6a3fcab8461c9675765b95e46', 0),
-	(36, 'fa53e540d87b345485a1b3e89a5cf7e7dc61eca8a3fcab8461c9675765b95e46', 0),
-	(37, 'f2e1250b33c6276cf73bce895d539e0ee698dd6da3fcab8461c9675765b95e46', 0),
-	(38, 'dd649978314a2ca486afa67ee769d705effee306a3fcab8461c9675765b95e46', 0),
-	(39, 'b924db3b208da3c4db0aa4b35cdf136f1729cd59a3fcab8461c9675765b95e46', 0),
-	(40, '627b2e2547b6201b24ad608330f24c50f7376eb57fa6da43d6fc8143e93cc3bb', 0),
-	(41, '60426e4f1c52e93dcf0c51b990349801d72ca6b17fa6da43d6fc8143e93cc3bb', 0),
-	(42, '847327cb901faf5745d74235164b0f1349b6e72b7fa6da43d6fc8143e93cc3bb', 0),
-	(43, '553d1a7d705dee5475838ecc6f2135ae00a118bc7fa6da43d6fc8143e93cc3bb', 0),
-	(44, '416d1e33586681d0033dcd60bc94e2db7aa5d3f87fa6da43d6fc8143e93cc3bb', 0),
-	(45, '1dd7996535f29bd5661051df87946c275513ef5a7fa6da43d6fc8143e93cc3bb', 0),
-	(46, '3fa468443522b7a623fa0e557caa289d9be021987fa6da43d6fc8143e93cc3bb', 0),
-	(47, '21c8c8e299946a846ee2b1ac96b1d2091ef71def7fa6da43d6fc8143e93cc3bb', 0),
-	(48, '1d1bde68222cb94d9e39b9685dc4755fd2f654837fa6da43d6fc8143e93cc3bb', 0),
-	(49, '3ad4e67860c42d4969355bd05bee1ac5832f3f477fa6da43d6fc8143e93cc3bb', 0),
+	(17, '7c8a29543bbddfa42185512abed5e6acf47030f564e04dacc68aee1bdc8d4af7', 1),
+	(18, '944da0d0e2488b03ea01f0fa80fdb1609157a8ec64e04dacc68aee1bdc8d4af7', 1),
+	(19, '65b4bb430e1ae84a17f62fbf75f233763c22a26e64e04dacc68aee1bdc8d4af7', 1),
+	(20, '96709317a9f2a7b4af3ceb68c16e87ab07193c9764e04dacc68aee1bdc8d4af7', 1),
+	(21, 'd5595c286a3c51942849624a8986cdfc519ed6f264e04dacc68aee1bdc8d4af7', 1),
+	(22, 'ace4199f8d3322d80fcea21456e454c651fc0bc364e04dacc68aee1bdc8d4af7', 1),
+	(23, '6a4cc2caf74fae03e284fcb95d9bf540faf23bee64e04dacc68aee1bdc8d4af7', 1),
+	(24, 'c50e6c033a948d047f34bbccf1e2e3fd597c4c5a64e04dacc68aee1bdc8d4af7', 1),
+	(25, 'c160cd0b00c4f59e621b0ceb0a9290bcd05cad4164e04dacc68aee1bdc8d4af7', 1),
+	(26, '6bc478dab6eceab16240d80cb3cce5bee432e91164e04dacc68aee1bdc8d4af7', 1),
+	(27, 'cb871ed4580f2b415a48cb23798e2e138f286099a3fcab8461c9675765b95e46', 1),
+	(28, 'ec78532cba9568bdd5418e1d4915b0d372d10bcaa3fcab8461c9675765b95e46', 1),
+	(29, '0a82003dd7378aa535443e54c00c23c30772266da3fcab8461c9675765b95e46', 1),
+	(30, 'f744cd142e4a63565930f047a0b4d362f51b2dc6a3fcab8461c9675765b95e46', 1),
+	(31, 'bc1b68cd6487954f77bf47a58164cb901f27dc5ea3fcab8461c9675765b95e46', 1),
+	(32, '728bb898bea6daef990572310258cfe26e4d2b34a3fcab8461c9675765b95e46', 1),
+	(33, '3933a031de44cceec1744a1701d7386d29d473faa3fcab8461c9675765b95e46', 1),
+	(34, 'a2635dfdcb0ddee3c61788a971ade0576cf4093ea3fcab8461c9675765b95e46', 1),
+	(35, '66b2822f3c18f816294f899892f961225d2471b6a3fcab8461c9675765b95e46', 1),
+	(36, 'fa53e540d87b345485a1b3e89a5cf7e7dc61eca8a3fcab8461c9675765b95e46', 1),
+	(37, 'f2e1250b33c6276cf73bce895d539e0ee698dd6da3fcab8461c9675765b95e46', 1),
+	(38, 'dd649978314a2ca486afa67ee769d705effee306a3fcab8461c9675765b95e46', 1),
+	(39, 'b924db3b208da3c4db0aa4b35cdf136f1729cd59a3fcab8461c9675765b95e46', 1),
+	(40, '627b2e2547b6201b24ad608330f24c50f7376eb57fa6da43d6fc8143e93cc3bbkupa999', 1),
+	(41, '60426e4f1c52e93dcf0c51b990349801d72ca6b17fa6da43d6fc8143e93cc3bb', 1),
+	(42, '847327cb901faf5745d74235164b0f1349b6e72b7fa6da43d6fc8143e93cc3bb999999999999999999999999', 1),
+	(43, '553d1a7d705dee5475838ecc6f2135ae00a118bc7fa6da43d6fc8143e93cc3bb', 1),
+	(44, '416d1e33586681d0033dcd60bc94e2db7aa5d3f87fa6da43d6fc8143e93cc3bb', 1),
+	(45, '1dd7996535f29bd5661051df87946c275513ef5a7fa6da43d6fc8143e93cc3bb', 1),
+	(46, '3fa468443522b7a623fa0e557caa289d9be021987fa6da43d6fc8143e93cc3bb', 1),
+	(47, '21c8c8e299946a846ee2b1ac96b1d2091ef71def7fa6da43d6fc8143e93cc3bb', 1),
+	(48, '1d1bde68222cb94d9e39b9685dc4755fd2f654837fa6da43d6fc8143e93cc3bb', 1),
+	(49, '3ad4e67860c42d4969355bd05bee1ac5832f3f477fa6da43d6fc8143e93cc3bb', 1),
 	(50, '0e3759481b80b19cb02966ff381996803c6f00ec7fa6da43d6fc8143e93cc3bb', 0),
 	(51, '4ff6058e2ae0d4ed7567eef75512a29066e224737fa6da43d6fc8143e93cc3bb', 0),
 	(52, 'cd2bb486bd8f5c318a4b9be9401e4174feb04b677fa6da43d6fc8143e93cc3bb', 0),
@@ -459,7 +457,6 @@ INSERT INTO `token_list` (`id`, `token`, `used`) VALUES
 /*!40000 ALTER TABLE `token_list` ENABLE KEYS */;
 
 -- Zrzut struktury tabela agencjauprawnien.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
@@ -484,18 +481,16 @@ INSERT INTO `user` (`id`, `name`, `secondName`, `lastName`, `birthDate`, `pesel`
 	(2, 'Piotr', 'Bogdan', 'Religa', '1994-02-25', '1', 'Bogdan', 'Elżbieta', 12, 1),
 	(3, 'Piotr', 'Bogdan', 'Religa', '1994-02-25', '2', 'Bogdan', 'Elżbieta', 13, 0),
 	(4, 'Piotr', 'Bogdan', 'Religa', '1994-02-25', '3', 'Bogdan', 'Elżbieta', 14, 1),
-	(7, 'Piotr', 'Bogdan', 'Religa', '1994-02-25', '4', 'Bogdan', 'Elżbieta', NULL, 0),
-	(8, 'Piotr', 'Bogdan', 'Religa', '1994-02-25', '5', 'Bogdan', 'Elżbieta', NULL, 1);
+	(7, 'Piotr', 'Bogdan', 'Religa', '1994-02-25', '4', 'Bogdan', 'Elżbieta', 17, 0),
+	(8, 'Piotr', 'Bogdan', 'Religa', '1994-02-25', '5', 'Bogdan', 'Elżbieta', 42, 1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 
 -- Zrzut struktury bazy danych komisjawyborcza
-DROP DATABASE IF EXISTS `komisjawyborcza`;
 CREATE DATABASE IF NOT EXISTS `komisjawyborcza` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci */;
 USE `komisjawyborcza`;
 
 -- Zrzut struktury tabela komisjawyborcza.admin
-DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `groupId` int(11) DEFAULT NULL,
@@ -514,11 +509,10 @@ DELETE FROM `admin`;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` (`id`, `groupId`, `login`, `password`, `sessionId`, `sessionCreate`) VALUES
 	(1, 1, 'okw', '$2y$10$5l7B3ZdzeIMbiHjDKbuPtu5AK26D8vF7Jr3VPwywI08hAZTnMoYcm', NULL, NULL),
-	(2, 2, 'pkw', '$2y$10$5l7B3ZdzeIMbiHjDKbuPtu5AK26D8vF7Jr3VPwywI08hAZTnMoYcm', 'f3rbn8ctok7tl2s7afe6qos4a4', '2018-03-08 23:44:12');
+	(2, 2, 'pkw', '$2y$10$5l7B3ZdzeIMbiHjDKbuPtu5AK26D8vF7Jr3VPwywI08hAZTnMoYcm', 'uoh3qg5j1ukv1770nnpb94u8qi', '2018-04-02 23:53:13');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
 -- Zrzut struktury tabela komisjawyborcza.candidate
-DROP TABLE IF EXISTS `candidate`;
 CREATE TABLE IF NOT EXISTS `candidate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
@@ -547,33 +541,36 @@ INSERT INTO `candidate` (`id`, `name`, `secondName`, `lastName`, `electionCommit
 /*!40000 ALTER TABLE `candidate` ENABLE KEYS */;
 
 -- Zrzut struktury tabela komisjawyborcza.candidate_chose_mapping
-DROP TABLE IF EXISTS `candidate_chose_mapping`;
 CREATE TABLE IF NOT EXISTS `candidate_chose_mapping` (
   `tokenMapping` varchar(64) COLLATE utf8_polish_ci NOT NULL,
-  `candidateId` int(11) DEFAULT NULL,
+  `candidateId` varchar(1024) COLLATE utf8_polish_ci DEFAULT NULL,
   `createDate` datetime DEFAULT NULL,
   PRIMARY KEY (`tokenMapping`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
--- Zrzucanie danych dla tabeli komisjawyborcza.candidate_chose_mapping: ~0 rows (około)
+-- Zrzucanie danych dla tabeli komisjawyborcza.candidate_chose_mapping: ~12 rows (około)
 DELETE FROM `candidate_chose_mapping`;
 /*!40000 ALTER TABLE `candidate_chose_mapping` DISABLE KEYS */;
 INSERT INTO `candidate_chose_mapping` (`tokenMapping`, `candidateId`, `createDate`) VALUES
-	('1a9f77bd5fbde501e1eee2d43b56da58cad121d1', 8, '2018-03-07 21:24:43'),
-	('319440b6848a8c42e99b03e7acfe5c019eee4f10', 1, '2018-03-08 22:53:59'),
-	('32852c86f9c1d19e940fd21655293fbced003103', 1, '2018-03-08 19:41:39'),
-	('5f8d8e420dd13450973291d128e114414e055b85', 0, '2018-03-07 21:18:14'),
-	('70a209665a09c2f1e340caf1fa4fc3f85abacad2', 7, '2018-03-07 21:26:54'),
-	('7955eb4b12f58f86a91084f0f7e27b2b71b15f56', 1, '2018-03-08 22:53:48'),
-	('ad317ed570dbc12d7378c6cbab967b43a523c70a', 2, '2018-03-08 22:51:21'),
-	('b0c0f905b5f0eeb37353c7ff882384083dee1835', 1, '2018-03-08 22:48:52'),
-	('b642240552486f3a038a32a35a09a33ae1b8f5e8', 2, '2018-03-08 21:51:17'),
-	('d9fccc9251e26a67f858ea1abd499ac980d0c1e6', 10, '2018-03-07 21:32:15'),
-	('eb4d170f60edb26b5e0161f59c50f54f86e2e59e', 1, '2018-03-08 22:51:41');
+	('181e189c63f669a3e40dc11650a706bd9e1c0c55', 'YhKoYjDdQ0TZFIaZXzLyLkOi6Wn4cxl9sirN7eIhpIWF2c1/bRz4DfJPbjzXj/+A31v5xxQQmawGGKbNxzwCLGtxQ2vDBUWo5LvoWAeyM4mCcqnl7TQb0j8KhewEyDBHj/7jlqyXGIrXZpUzX55UlCQWwverC5W/xDzIMZ3kH3U=', '2018-04-02 13:08:48'),
+	('19b178e671f57be884c4a00a615f6a7e3df9c4cd', 'BB0WEcVeg9N6diQDeI52QHoQyqQ7WmEfJ+4ueGtseno+xrSJHGCS+SRwA3NswSqDJgJD05PCXa4bc0vzNskS1dOL/6ujWxRxMJ6y6+KbBZwXd0fYvDwISJaEzLPSL6JFFHa75KdhFKpsrMK+RgIHYxDuxGn0VgQrlHyffsXfpqU=', '2018-04-02 15:21:47'),
+	('1eab964b1cde02957df67697f2292ff7bfcdb2f1', 'EkF98VQHvVqG1ncR+EITu2gTfD66mchJQkBxXdQBNr65rbVlO4xBFXp9nVCbwgSnTZ9cXZUUxwDgbhg1QrbnvA1XqrVm8gjG8tY9sKfWOmz3LKqi+WPUQOlDflEXNtEo2RAOhSxfK/bBpnctLTxEN/7a2OzGXVHzSqcWCVXkCn0=', '2018-04-02 13:08:53'),
+	('4042e79b23b9732ff19973393a215da3f50f0cc0', 'PNb2k5M+/2HP2aavyFY6V1FG/73ztbrGijP8UUNoPzjPkkpO9j4atr6CJcp3TzMZXKrFO3peDG17f7rWNmvo6D25pH+spJ5tWvJoW/loabTx6/yWUrisYZQRNyXRcq7jMT0U7EVsT88MEkT8T1CNAfPupnq6c2nIzPNZxbyidoc=', '2018-04-02 22:46:02'),
+	('4828be36d1de891f886e1fa4db84aaf9bb73ffb6', 'Qq/QM+FG/0CuAeH1ifQDc6cgAS3YSrs1s/Ri1CGa0kd1LUkAz3JHhTlT7mOigclNLRmVxpZwhXTGgEL6DVjQze8Ge9KQwATStYFMrWWf3+nchg1KZbSDG53DXIdt7EAiuvgts9ahvCtvHICuAHGYYB7/5SsWbS2HczMGb4k1trU=', '2018-04-02 12:22:18'),
+	('4ac201a1f4c6b2cd9544a6bcf355c388e054b982', 'f7fOmENjk+2W3n17Xt7KE3Y1DMzEa9Xef6iHyV6ipjXk0EhtyhX5VqlZWfRV5kIVpO+Zy7DUtlw9QeDcjoxQ1CvIz0ZiH2ub4nRhtF3XMmRSJpE4Eah6bN3DjU27eVbM8/c6bZ8dWk9pE/9UkUv011oq+Z0aoSYe8/m5myy+vKg=', '2018-04-02 15:00:39'),
+	('59fe3cc8704ab7187cc735557c898c9bd21f9e88', 'GNyzFhqnP19u8CvoRd8kWbv5EDeb2Q4w5CKIfv2mzuN+OP8Ey7LH85zyt6Asermm14BK+4Zrcqy9n9d5/El1SDwv1AN+ehNMsv/n/yR27Ob8b2OQeHxjumN0zVZWhHINmCfbAtln3YNqAZ3AWygKlYfZFtI3nlzkNxCYP8FyCsc=', '2018-04-02 12:11:59'),
+	('7f3f19fbd1084a569ed2fd97a8a6d1b6ae110d60', 'KoOI1JYzuRURvFjUvhySl/FYQtr4p5bu+yc7VxaNeaO0IO1gKEbBhmSLJHHclpk5/gh3kkhJ3Lu/GfmAMh07PfMPKkiHW5UnGZiOEGyXPln/DN6m4cIE/ef6gk/ytmQwElZa4UipuewwOZJ+wsKzKGWPIMQk0qQZgUTcWQ4/DCY=', '2018-04-02 22:11:14'),
+	('9f1b9fb313de5946fcc6fa3375ecf1d71d81621e', 'HGeerc3SIMGvoRKt+nn9+SiJ5MfGbKCkMpm7McNX6S14VEKPfdPzkIEK3KYSp38cfgQQjdmIArcrlRzxS37g8gFXl4B12VALSHOKXej+87KB1Oq3synQ+C6BfTzTsqJM2PXqeL8TPCOD5wCsI7cfaZqPtdjtWpZt3uxqCw0MIfo=', '2018-04-02 15:06:28'),
+	('bebf4a4030bb866a59a11c8be9c954327c34ebc9', 'MX8xCY+EKwLwk25o+iE4xvTNyYIPNA/lIHvn7WfMtktHZxgKCY6iceG6CJvsbvKrsXQROlnRj5aDTbMlTmW+tUke7bPui0O0Xj+zshDDjBygGMxwHKAnxhRIVBCA5MoHSFhVT2RpAcxewwtvxF8N3a8Xf1gqw9vkohqrKVa+C/c=', '2018-04-02 12:24:46'),
+	('c1808bc5970cb62c09ea217be216ef33390b5752', 'j1UJjokMlx2GPNnxgDiNpCBwyzNe/SOC+19dM2PqohhdliLSt5WiJrRjuQvEwyHAZeIUN+6QtJvZfjvRR1hAgNmY8vMOlBl7tcoJLFtNhEOs6cwDL1B5dXFODTyJroTc2gV3r829W8MkLnh8eex9Y52z5dLbwikgFsQ5pIfiGmc=', '2018-04-02 22:30:16'),
+	('c3d5058e8f6fb2737fa24802b88f9e4408801a7a', 'ZZxfubmtVeY/13w4PcssCuDTK6TwCyAF3J1NZhI3MsixOfIwrxJbV6fkqL6UipvRbhC/9FAO9HevpicGTllmiyzAOSiVHf2FUU2IwtpSoWgXwacmOgcUenLa88Gx37yTVO770tTv0S5Ax0UAODxZdrOkiQlpPXiW4F1Bw20bUHA=', '2018-04-02 15:35:34'),
+	('cbf7b9edc7b5ed2ee453edc54cd3ad7b72e9cd40', 'TtoWoYqEqsPzcOszpS0kMuUQhpTU36zGdJQr8xB1kdzwAFyMBPauEFQ8MveOeUM/jd8Ucc4pgbnpAwp1LdsLwvt56CBh6chbP9gTFG2+sz64YhxzxXQbrPHQXa5zVYkCje2Y1D71mRNeRMMslqJ6NIGK3GdZzCmJDbmHExNw4+o=', '2018-04-02 12:43:01'),
+	('dbec43cfee63bc37c701c8b8c8ab6b3c0f8dd512', 'T/8V2iGewRSAvfjalRpdf4EuH5b/1BVYo6K5HFnSj545UUplrO8RJjDrtnNCiv8UrlNtPX+P+UPPvSmIbrti4DS2Q4FDi9zFP2h3gra8TjX2shfuQYcg53WypgxUXNOXU0uE7Hr8fg/wihBahgTpl6Ez5MQY+SMq9g9D0rf1AQU=', '2018-04-02 22:40:21'),
+	('e2af14d4396c336dbfa3e76ee670463e1cbd7eec', 'CTZcew6GeTiTwUAS0nUr8tvEiI2VGfV9VIDt4Wwz2V6aVW4WFUwQSNZwwmXKfBtbQuZ+5TvMsBK8DkvmmCCdQ9PFkgd6iCbIbX0GFrhpPaZwktUBi0ah/MLlkyw9qGH3QN6R3QZylZaaQA1hOuBHr/+xRC+yn4uDnqWDw+OV/Ng=', '2018-04-02 23:00:02'),
+	('e889beb58dac0927d6901f720cdd037b0d8299b3', 'LX7ekc1dOuTxAMoAZu3f5EYXZiKy25AtDyfUZn2jwWUYtVBCKaI1vq8iaVGacIYPALHU5Qj+tK2qtbWj07DH4QitUCCdHhYjwltKbSoxWvfROGtLNof82/jeLfdOc0ilRUquviFUS2EZNP4/WeFUptO1lbsOUFV07dL0RcG1AY0=', '2018-04-02 22:44:17');
 /*!40000 ALTER TABLE `candidate_chose_mapping` ENABLE KEYS */;
 
 -- Zrzut struktury tabela komisjawyborcza.group
-DROP TABLE IF EXISTS `group`;
 CREATE TABLE IF NOT EXISTS `group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
@@ -590,41 +587,44 @@ INSERT INTO `group` (`id`, `name`) VALUES
 /*!40000 ALTER TABLE `group` ENABLE KEYS */;
 
 -- Zrzut struktury tabela komisjawyborcza.settings
-DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `alias` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   `value` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- Zrzucanie danych dla tabeli komisjawyborcza.settings: ~1 rows (około)
 DELETE FROM `settings`;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`id`, `alias`, `value`) VALUES
-	(1, 'votingEnable', '1');
+	(1, 'votingEnable', '0'),
+	(2, 'importTokenList', '0'),
+	(3, 'decryptVote', '0'),
+	(4, 'publicResult', '0');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
 -- Zrzut struktury tabela komisjawyborcza.vote
-DROP TABLE IF EXISTS `vote`;
 CREATE TABLE IF NOT EXISTS `vote` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `token` varchar(64) COLLATE utf8_polish_ci NOT NULL DEFAULT '0',
-  `candidateId` int(11) DEFAULT NULL,
+  `token` varchar(1024) COLLATE utf8_polish_ci NOT NULL DEFAULT '0',
+  `candidateId` varchar(1024) COLLATE utf8_polish_ci DEFAULT NULL,
   `isActive` tinyint(4) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `voice_candidateId_key_candidate_list_id` (`candidateId`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
--- Zrzucanie danych dla tabeli komisjawyborcza.vote: ~4 rows (około)
+-- Zrzucanie danych dla tabeli komisjawyborcza.vote: ~5 rows (około)
 DELETE FROM `vote`;
 /*!40000 ALTER TABLE `vote` DISABLE KEYS */;
 INSERT INTO `vote` (`id`, `token`, `candidateId`, `isActive`) VALUES
-	(22, 'afba5c1a94a5a1b4a9c83700c49e09b4dfbc82fa7c913b87b1e36d01bc7ed4fd', 10, 1),
-	(23, '698c848cc86fb69deb471ca95d000197a7dcc5e37c913b87b1e36d01bc7ed4fd', 1, 1),
-	(24, '7f182961ab96c0ccaa7edab52d34ede46d53de9f7c913b87b1e36d01bc7ed4fd', 1, 1),
-	(25, '5a5368518e709be389e5b222524f42813324a43e7c913b87b1e36d01bc7ed4fd', 5, 1);
+	(22, 'afba5c1a94a5a1b4a9c83700c49e09b4dfbc82fa7c913b87b1e36d01bc7ed4fd', 'YjGpJ4TBw615ssDCba3jarBY2uQX6F+b45yoZ7m81XO4jG6G/klI4yLyfy0WikyliXzMS8z2qTgoDS1KSnGqInD1ZOK1w7K0rAEDAdwXMqbzk0s87qNDqXp9qBGnimNznxOZdAcwZzgFwrBzEws3UF3lTk8Rtq6mLvtJztPZgPo=', 0),
+	(23, '698c848cc86fb69deb471ca95d000197a7dcc5e37c913b87b1e36d01bc7ed4fd', 'd3+umy9ttrUTyT8ObAWkP95JWmn31C1+uyRlikZyguZsknhBsIvt4RTg6Kza16NwalFQSfTsoGKKWIkLp9CCl0Kbe77IqWLL6PTL0OtwyLFw15HT7zN1MR5J92OFZKTTXA7eBPH++MyRyZIwXO38IiG89vtsIiWDZr8Eezis1d8=', 1),
+	(24, '7f182961ab96c0ccaa7edab52d34ede46d53de9f7c913b87b1e36d01bc7ed4fd', 'P+vJGNPfEwQnjIvZDVVn+VvbQEACo97G0hsnWN4bqnFRX6x28aJkKoKvG0WdymADShR3TqzonipHzBr1LnCMpmgIXWwNogiJZIY1hw8JzPHn5fTJ+/UuUqo66bJQlwML3jclGubQWtfA1eESvak28NR1g/MbUGG6hojd9vZqYVs=', 1),
+	(25, '5a5368518e709be389e5b222524f42813324a43e7c913b87b1e36d01bc7ed4fd', 'WEwvfW5gvddxUNUqjEtCiD/wV/NuFsdkzuXPe4TxgklUNtmZufvESSdCzr544XerMrue6KobsVeksst2uKL93beUTqLomVFw/uv9fSlJpegM1ZQeZ/OnkouauUUwLvzBv1Q1GLU4bcDitcNfa2KOx71XFs10KMdIsD7rHOBqAPc=', 0),
+	(26, '7c8a29543bbddfa42185512abed5e6acf47030f564e04dacc68aee1bdc8d4af7', 'S2usZfnOPpApDoV8wov+P3/8cEda2o8GN8ywr4vlh3m9GIdc7hOYFyWRodbzXzxw0HPGWHILmTDxkAV5cJtGWDjsvgORHZ0lWXtyf1SrL0YI9hW36BmUNE0pJXA8uvVVsF99AHPWKldync2Gg/lbsZQjAMOCzO7I9eRCMVI5JwE=', 0),
+	(31, '847327cb901faf5745d74235164b0f1349b6e72b7fa6da43d6fc8143e93cc3bb999999999999999999999999', 'QwA0F6s8Wku0BqPrtYLTrVR+sUQya6lFF4wEPZNM+OZsR6L1gWqAY0At8OOXQv39aDQeuwr0zALrifOY6+aTpr4F1KOJ3omeFGMS3QM1Q5WFg4Crv7ES+D5GidHzQW3U+y5PlQdv526fJQr61foNxy45NipohAzms6IGUJYGYqU=', 1);
 /*!40000 ALTER TABLE `vote` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

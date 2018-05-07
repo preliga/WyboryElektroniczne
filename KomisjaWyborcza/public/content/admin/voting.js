@@ -43,9 +43,19 @@ define(
                                 });
                             });
                         });
-
-
                 });
+
+                $('.public-vote-button').on('click', function () {
+
+                    let button = $(this);
+                    let settingsTemplate = new DateTemplate('templates\\Settings');
+                    settingsTemplate.call('setSettings', {
+                        'alias': 'publicResult',
+                        'value': 1
+                    }).then(function () {
+                        button.attr('disabled', true);
+                    });
+                })
             }
         };
     }

@@ -14,6 +14,12 @@ use resource\orm\templates\Admin;
 
 class login extends Base
 {
+    public function init()
+    {
+        parent::init();
+        $this->addCSS('/scripts/app/css/font_Varela-Round.css');
+    }
+
     public function permissionBase()
     {
         $admin = Admin::getInstance()->getAdminBySession();

@@ -7,7 +7,7 @@ return array_merge(
     [
         'enableCreationRoutes' => true,
 
-        'homeURL' => 'http://agencjauprawnien.oo',
+        'homeURL' => 'http://komisjawyborcza.oo',
         'KomisjaWyborczaURL' => 'http://komisjawyborcza.oo',
         'KomisjaWyborczaElectionsURL' => 'http://komisjawyborcza.oo/elections',
 

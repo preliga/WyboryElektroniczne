@@ -52,6 +52,9 @@ class saveUser extends Base
         $KWConnector = KWConnector::getInstance();
         $response = $KWConnector->changeToken($user->token, $choseToken);
 
-        $this->redirect(Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'), ['status' => $response->status, 'message' => $response->message]);
+        $this->redirect(
+            Config::getInstance()->getConfig('KomisjaWyborczaElectionsURL'),
+            ['status' => $response->status, 'message' => $response->message]
+        );
     }
 }

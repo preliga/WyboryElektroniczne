@@ -6,7 +6,7 @@
  * Time: 23:18
  */
 
-namespace content\admin;
+namespace content\admin\voting;
 
 use resource\action\Admin;
 use resource\model\webServiceAU\AUConnector;
@@ -16,7 +16,7 @@ use resource\orm\templates\Settings;
  * Class downloadValidTokens
  *
  * @package content\admin
- * @Route("/admin/downloadValidTokens")
+ * @Route("/admin/voting/downloadValidTokens")
  */
 class downloadValidTokens extends Admin
 {
@@ -28,11 +28,16 @@ class downloadValidTokens extends Admin
 
         $tokens = AUConnector::getInstance()->getValidTokens();
 
-        $this->registry->db
-            ->update('vote', ['isActive' => 1], ['token IN (?)' => $tokens]);
+        if (!empty($tokens)) {
+            $this->registry->db
+                ->update('vote', ['isActive' => 1], ['token IN (?)' => $tokens]);
 
-        $this->registry->db
-            ->update('vote', ['isActive' => 0], ['token NOT IN (?)' => $tokens]);
+            $this->registry->db
+                ->update('vote', ['isActive' => 0], ['token NOT IN (?)' => $tokens]);
+        } else {
+            $this->registry->db
+                ->update('vote', ['isActive' => 0]);
+        }
 
         Settings::getInstance()->setSettings('importTokenList', true);
 

@@ -11,19 +11,19 @@
 
     <div class="download-valid-tokens buttons col-sm-3" {if $settings->votingEnable == 1} style="display: none;" {/if}>
         <label style="margin-left: 20px;">
-            <a class="btn btn-warning" href="/admin/downloadValidTokens">Eksportuj nieważne głosy</a>
+            <a class="btn btn-warning" href="/admin/voting/downloadValidTokens">Eksportuj nieważne głosy</a>
         </label>
     </div>
 
     <div class="decrypt-vote buttons col-sm-3" {if $settings->importTokenList == 0} style="display: none;" {/if}>
         <label style="margin-left: 20px;">
-            <button class="btn btn-warning decrypt-vote-button">Odszyfruj głosy</button>
+            <a class="btn btn-warning" href="/admin/voting/decryptVotes">Odszyfruj głosy</a>
         </label>
     </div>
 
     <div class="public-vote buttons col-sm-3" {if $settings->decryptVote == 0} style="display: none;" {/if}>
         <label style="margin-left: 20px;">
-            <button class="btn btn-warning public-vote-button">Opublikuj wyniki</button>
+            <button class="btn btn-success public-vote-button">Opublikuj wyniki</button>
         </label>
     </div>
 </div>
