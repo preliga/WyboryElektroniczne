@@ -9,6 +9,5 @@ class index extends Base
 {
     public function onAction()
     {
-        $this->view->votingEnable = Settings::getInstance()->getSettings('votingEnable');
     }
 }

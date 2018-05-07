@@ -25,7 +25,7 @@ class login extends Base
         $admin = Admin::getInstance()->getAdminBySession();
 
         if (!empty($admin) && !$admin->empty()) {
-            $this->redirect('/admin/index', []);
+            $this->redirect('/admin/voting', []);
         }
     }
 
